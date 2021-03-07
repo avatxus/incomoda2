@@ -1,0 +1,195 @@
+:root {
+    --color: #343434;
+    --bg: #fefcea;
+    --bg-gradient: linear-gradient(to right, #fefcea 0%, #efeee8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    --body-bg: #f8f9fa;
+    --main-color: #eca681;
+    --font-size: 16px;
+    --outline-bg: #d3b18c6b;
+}
+
+#app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 24px;
+    -webkit-font-smoothing: auto;
+}
+
+body {
+    margin: 0;
+    font-family: Montserrat, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--body-bg);
+    height: 100%;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: none;
+    /* overflow: hidden; */
+}
+
+blockquote {
+    text-align: center;
+    font-style: italic;
+    font-size: var(--font-size);
+    margin-bottom: 64px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0;
+}
+
+h2 {
+    font-size: calc(var(--font-size) * 2);
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 32px 0 24px 0;
+    width: 100%;
+    padding-bottom: 12px;
+}
+
+h3 {
+    font-size: var(--font-size);
+    font-weight: 600;
+    line-height: 1.7;
+    margin: 24px 0 16px 0;
+    padding-top: 10px;
+}
+
+h4 {
+    font-size: var(--font-size);
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 16px 0 16px 0;
+}
+
+p {
+    line-height: 1.7;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+/* Global styles for the book */
+
+.last-p {
+    break-after: column !important;
+}
+
+.no-break {
+    break-inside: avoid;
+    display: block;
+}
+
+.items-list {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    margin: 0;
+    text-indent: 16px;
+    widows: 2;
+    orphans: 2;
+    color: var(--color);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.asterisk-separator {
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    letter-spacing: 16px;
+}
+
+/* Material ui overrides */
+
+.MuiSwitch-colorPrimary,
+.MuiSvgIcon-colorPrimary {
+    color: var(--main-color) !important;
+}
+
+.MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track {
+    background-color: #404448 !important;
+}
+
+.MuiSvgIcon-fontSizeLarge {
+    font-size: 48px !important;
+}
+
+.MuiLinearProgress-barColorPrimary {
+    background-color: var(--main-color) !important;
+}
+
+.MuiCircularProgress-colorPrimary {
+    color: var(--main-color) !important;
+}
+
+.MuiLinearProgress-colorPrimary {
+    background-color: rgba(256, 229, 228, 0.63) !important;
+}
+
+.MuiLinearProgress-bar1Determinate {
+    transition: transform .1s linear !important;
+}
+
+nav > div > ul {
+    padding: 0px 22px;
+}
+
+#messenger {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 250ms ease-in-out;
+}
+
+#messenger-inner {
+    width: auto;
+    height: auto;
+    padding: 24px;
+    background: #424242;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    border-radius: 4px 4px 0 0;
+}
+
+@media (max-width: 768px) {
+    html {
+        height: 100%;
+        width: 100%;
+    }
+    body {
+        font-size: 16px;
+        line-height: 24px;
+        /* padding: 0; */
+    }
+}
+
+@media (max-width: 500px) {
+    html {
+        height: 100%;
+    }
+    body {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    #app {
+        padding: 0;
+    }
+}
