@@ -167,36 +167,23 @@ const Page = () => {
     // useEffect(() => {
     //     handleResize();
     // }, [appState.fontSize, handleResize]);
-    console.log({ appState, pageRef, html });
+    console.log({ appState, pageRef });
 
     return (
         <Swipe onSwipeLeft={onSwipedLeft} onSwipeRight={onSwipedRight} tolerance={80} style={{ height: '100%' }}>
-            <article lang="es" style={{ height: 'calc(100% - 4px' }}>
+            <article lang="es" style={{ height: 'calc(100% - 4px)' }}>
                 <Header />
                 <div className={styles.pageWrapper}>
                     <div
                         className={styles.bookContent}
                         ref={pageRef}
-                        style={{ fontSize: appState.fontSize, columnWidth: loaded ? `${appState.clientWidth}px` : '' }}
+                        style={{ fontSize: appState.fontSize, columnWidth: `${appState.clientWidth}px` }}
                     >
-                        {!html ? (
-                            <>
-                                <div
-                                    lang="es"
-                                    dangerouslySetInnerHTML={{ __html: html }}
-                                    style={{ height: '100%', opacity: loaded ? 1 : 0 }}
-                                />
-                                {!loaded && (
-                                    <div style={{ height: '100%', width: '100%', position: 'absolute', top: 0, left: 0 }}>
-                                        <Loader />
-                                    </div>
-                                )}
-                            </>
-                        ) : (
+                        <div lang="es" dangerouslySetInnerHTML={{ __html: html }} style={{ height: '100%', opacity: loaded ? 1 : 0 }} />
+                        {!loaded && (
                             <div style={{ height: '100%', width: '100%', position: 'absolute', top: 0, left: 0 }}>
                                 <Loader />
                             </div>
-                            // null
                         )}
                     </div>
                     <div className={styles.pageFooter}>
