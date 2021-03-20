@@ -1,17 +1,21 @@
 import React, { useCallback, useMemo } from 'react';
-import Drawer from '@material-ui/core/Drawer';
-
+import SideNav from 'react-simple-sidenav';
 import styles from './index.module.css';
 import MenuBookOutlinedIcon from '@material-ui/icons/MenuBookTwoTone';
 import { useAppState } from '../../contexts/AppContext';
 
-const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
-
 const CustomLink = ({ href, onClick, children }) => {
+    const appState = useAppState();
     return (
         <a
             onClick={onClick}
-            className={styles.menuLink}
+            style={{
+                textDecoration: 'none',
+                color: appState.darkTheme ? 'white' : 'black',
+                fontWeight: 500,
+                fontSize: appState.fontSize,
+                letterSpacing: 0,
+            }}
             href={href}
             native="true"
         >
@@ -23,13 +27,16 @@ const CustomLink = ({ href, onClick, children }) => {
 const Title = () => {
     const { fontSize } = useAppState();
     return (
-        <div className={styles.navTitle}>
-            <div style={{ fontSize: fontSize * 2 }}>Incómoda</div>
+        <div>
+            <h1 style={{ fontStyle: 'initial', fontSize: fontSize * 2 }}>Incómoda</h1>
+            <h2 style={{ padding: 0, margin: 0, fontWeight: 700, fontSize: fontSize * 1.5 }}>Cuerpos Libres</h2>
+            <hr />
         </div>
     );
 };
 
 const Menu = ({ showNav, setShowNav }) => {
+    const appState = useAppState();
     const hideNav = useCallback(() => {
         setShowNav(false);
     }, [setShowNav]);
@@ -67,19 +74,7 @@ const Menu = ({ showNav, setShowNav }) => {
             <div role="button" tabIndex="0" className={styles.menuButtonWrapper} onClick={() => setShowNav(true)} aria-label="Menu">
                 <MenuBookOutlinedIcon size="large" color="primary" />
             </div>
-            <Drawer
-                open={showNav}
-                disableBackdropTransition={!iOS}
-                disableDiscovery={iOS}
-                onBackdropClick={() => setShowNav(false)}
-                className={styles.drawer}
-                hysteresis={1}
-            >
-                <Title />
-                <hr />
-                <div className={styles.navWrapper}>{navItems}</div>
-            </Drawer>
-            {/* <SideNav
+            <SideNav
                 showNav={showNav}
                 onHideNav={() => setShowNav(false)}
                 title={<Title />}
@@ -113,7 +108,7 @@ const Menu = ({ showNav, setShowNav }) => {
                 itemHoverStyle={{
                     fontWeight: 800,
                 }}
-            /> */}
+            />
         </div>
     );
 };

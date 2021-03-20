@@ -23,7 +23,7 @@ const Page = () => {
         (e) => {
             switch (e.keyCode) {
                 case 39: // ArrowRight
-                    history.push('/book')
+                    history.push('/book');
                     break;
                 case 37: // ArrowLeft
                     history.push('/');
@@ -35,8 +35,8 @@ const Page = () => {
         [history],
     );
 
-     // Keydown
-     useEffect(() => {
+    // Keydown
+    useEffect(() => {
         window.addEventListener('keydown', handleKeydown, { passive: true });
 
         return () => {
@@ -49,17 +49,17 @@ const Page = () => {
     }, [appDispatch]);
 
     return (
-        <div className={styles.wrapper}>
+        <div className="wrapper">
             <div className={styles.pageWrapper}>
                 <Header />
                 <h1 className={styles.title}>Configuración</h1>
 
                 <div className={styles.textExample}>
                     <h4>Recomendaciones para una mejor lectura:</h4>
-                    <div style={{padding: '8px'}}>
-                        <ul>
+                    <div style={{ padding: '8px' }}>
+                        <ul lang="es">
                             <li>
-                                Elegí un tamaño de letra que te quede cómodo. Siem&shy;pre po&shy;dés vol&shy;ver a es&shy;ta
+                                Elegí un tamaño de letra que te quede cómodo. Siempre po&shy;dés vol&shy;ver a es&shy;ta
                                 pá&shy;gi&shy;na pa&shy;ra cam&shy;biar&shy;lo.
                             </li>
                             <li className={styles.fontSizeWrapper}>
@@ -98,10 +98,7 @@ const Page = () => {
                                 <img src={iosAction} width="24" alt="Agregar a inicio" style={{ verticalAlign: 'sub' }} /> y seleccionan:
                                 'Agregar a inicio'
                             </li>
-                            <li>
-                                Esta aplicación guarda cuál fue la última página que leíste, así que podés cerrár y abrir&shy;la y
-                                se&shy;guir le&shy;yen&shy;do.
-                            </li>
+                            <li>Esta aplicación guarda cual fue la última página que leíste.</li>
                         </ul>
                     </div>
                 </div>
@@ -115,7 +112,7 @@ const Page = () => {
                     >
                         <ArrowLeftIcon fontSize="large" color="primary" />
                     </div>
-                    <div className={styles.navigation} onClick={() => (appState.legal ? history.push('/book') : history.push('/legal'))} tabIndex="0">
+                    <div className={styles.navigation} onClick={() => history.push('/book')} tabIndex="0">
                         <ArrowRightIcon fontSize="large" color="primary" />
                     </div>
                 </div>

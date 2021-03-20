@@ -23,7 +23,7 @@ const Page = () => {
         (e) => {
             switch (e.keyCode) {
                 case 39: // ArrowRight
-                    history.push('/book')
+                    history.push('/book');
                     break;
                 case 37: // ArrowLeft
                     history.push('/');
@@ -35,8 +35,8 @@ const Page = () => {
         [history],
     );
 
-     // Keydown
-     useEffect(() => {
+    // Keydown
+    useEffect(() => {
         window.addEventListener('keydown', handleKeydown, { passive: true });
 
         return () => {
@@ -56,7 +56,7 @@ const Page = () => {
 
                 <div className={styles.textExample}>
                     <h4>Recomendaciones para una mejor lectura:</h4>
-                    <div style={{padding: '8px'}}>
+                    <div style={{ padding: '8px' }}>
                         <ul>
                             <li>
                                 Elegí un tamaño de letra que te quede cómodo. Siem&shy;pre po&shy;dés vol&shy;ver a es&shy;ta
@@ -115,7 +115,7 @@ const Page = () => {
                     >
                         <ArrowLeftIcon fontSize="large" color="primary" />
                     </div>
-                    <div className={styles.navigation} onClick={() => (appState.legal ? history.push('/book') : history.push('/legal'))} tabIndex="0">
+                    <div className={styles.navigation} onClick={() => history.push('/book')} tabIndex="0">
                         <ArrowRightIcon fontSize="large" color="primary" />
                     </div>
                 </div>

@@ -5,6 +5,9 @@
     flex-direction: column;
     /* justify-content: space-between; */
     height: 100%;
+    -webkit-box-shadow: 0px 0px 30px -5px rgba(112, 112, 112, 1);
+    -moz-box-shadow: 0px 0px 30px -5px rgba(112, 112, 112, 1);
+    box-shadow: 0px 0px 30px -5px rgba(112, 112, 112, 1);
 }
 
 .header {
@@ -12,19 +15,26 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     text-transform: uppercase;
+    text-align: center;
+    height: 35%;
 }
 
 .imageWrapper {
-    width: 100%;
+    width: 90%;
+    margin: auto;
     display: block;
     text-align: center;
+    -webkit-box-shadow: 4px 0px 30px -5px rgba(112, 112, 112, 1);
+    -moz-box-shadow: 4px 0px 30px -5px rgba(112, 112, 112, 1);
+    box-shadow: 4px 0px 30px -5px rgba(112, 112, 112, 1);
     /* padding-bottom: 40px; */
 }
 
 .imageWrapper img {
     width: 100%;
+    display: block;
 }
 
 .textWrapper {
@@ -41,8 +51,7 @@
     font-weight: 700;
     letter-spacing: 6px;
     line-height: 1;
-    margin-left: 32px;
-    margin-top: 32px;
+    text-align: text-center;
 }
 
 .subtitle {
@@ -60,12 +69,19 @@
     font-weight: 700;
     font-size: 24px;
     line-height: 1.7;
-    margin: 0 40px 4px 0px;
+    margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+    justify-content: center;
 }
 
-@media (max-width: 500px) {
+
+
+
+@media (max-width: 766px) {
     .title {
         font-size: 44px;
     }
@@ -75,18 +91,66 @@
     }
 
     .author {
-      font-size: 20px;
-      margin-bottom: 8px;
-      margin-right: 40px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 40px;
+        margin-top: 0;
+    }
+    .author {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .pageWrapper {
+        order: 2;
+        padding: 40px;
+    }
+    .title {
+        font-size: 40px;
+        text-align: center;
+        margin: 0;
+        margin-top: 0;
+    }
+    .header {
+        margin: 0;
+    }
+    .author {
+        margin: 0;
+        text-align: center;
+        margin-bottom: 16px;
     }
 }
 
 @media (max-width: 360px) {
-  .title {
-      font-size: 40px;
-  }
+    .title {
+        font-size: 40px;
+    }
 
-  .subtitle {
-      font-size: 20px;
-  }
+    .subtitle {
+        font-size: 20px;
+    }
+}
+
+@media (max-height: 1024px) {
+    .title {
+        font-size: 50px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-height: 600px) {
+    .title {
+        font-size: 32px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    .author {
+        font-size: 18px;
+    }
 }

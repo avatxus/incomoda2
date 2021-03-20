@@ -53,7 +53,7 @@ const Page = () => {
 
     return (
         <Swipe onSwipeLeft={onSwipeLeft} style={{ height: '100%', width: '100%', display: 'flex', alignItems: 'center' }} tolerance={100}>
-            <div className={styles.wrapper}>
+            <div className="wrapper">
                 <div className={styles.pageWrapper}>
                     <Cover />
                     <div className={styles.pageFooter}>

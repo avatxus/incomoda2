@@ -16,16 +16,16 @@
     position: relative;
     height: 100%;
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fefcea+0,efeee8+100 */
-    background:  #5f2231; /* Old browsers */
+    background:  #fafafa; /* Old browsers */
     /* background: linear-gradient(to right, #fefcea 0%, #efeee8 100%);; */
-    color: #fafafa;
+    color: #000000;
     order: 1;
     box-sizing: border-box;
 }
 
 .pageFooter {
     position: absolute;
-    bottom: 0;
+    bottom: 4px;
     left: 0;
     width: 100%;
     display: flex;
@@ -47,20 +47,23 @@
     background: var(--outline-bg);
 }
 
-@media (min-width: 2048px) {
+@media (max-width: 2048px) {
     .wrapper {
         width: 800px;
     }
 }
 
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .wrapper {
-        width: 640px;
+        width: 600px;
     }
 }
 
-@media (min-width: 500px) {
+@media (max-width: 500px) {
+    .wrapper {
+        height: 85%;
+    }
     .pageWrapper {
         order: 2;
         /* padding: 40px; */

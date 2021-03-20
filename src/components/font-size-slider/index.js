@@ -6,7 +6,7 @@ import Slider from '@material-ui/core/Slider';
 const SLIDER_STEP = 50;
 const MAX_STEP = 100; // should be a multiple of SLIDER_STEP
 const INCREASE_STEP = 2;
-const MIN_FONT = 16;
+const MIN_FONT = window.innerWidth < 600 || window.innerHeight > 800 ? 16 : 10;
 
 const getFontSize = (value) => {
     return MIN_FONT + (value / SLIDER_STEP) * INCREASE_STEP;
@@ -25,15 +25,15 @@ const getValueText = (value) => {
 const marks = [
     {
         value: 0,
-        label: 'Normal',
+        label: '-',
     },
     {
         value: 50,
-        label: 'Mediana',
+        label: 'aA',
     },
     {
         value: 100,
-        label: 'Grande',
+        label: '+',
     },
 ];
 
@@ -44,7 +44,6 @@ const FontSizeChanger = (props) => {
     const onChange = useCallback(
         (e, value) => {
             appDispatch({ type: 'SET_FONT_SIZE', fontSize: getFontSize(value) });
-            console.log(value);
         },
         [appDispatch],
     );

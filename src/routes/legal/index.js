@@ -18,7 +18,7 @@ const Page = () => {
     }, [appDispatch]);
 
     return (
-        <div className={styles.wrapper}>
+        <div className="wrapper">
             <div className={styles.pageWrapper}>
                 <Header />
                 <div className={styles.content}>

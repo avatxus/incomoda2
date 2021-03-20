@@ -71,7 +71,7 @@ function registerValidSW(swUrl, config) {
                                     'tabs for this page are closed. See https://cra.link/PWA.',
                             );
                             sendMessage(
-                                'Hay una nueva versión disponible. Cierra la app y vuelve a abrirla.',
+                                `<span>Hay una nueva versión disponible. <span role="button" class="messenger-button" onclick="unregister(true)">Refrescar</span>.</span>`,
                             );
 
                             // Execute callback
@@ -125,14 +125,17 @@ function checkValidServiceWorker(swUrl, config) {
         });
 }
 
-export function unregister() {
+export function unregister(reload = false) {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.ready
             .then((registration) => {
                 registration.unregister();
+                if (reload) window.location.reload();
             })
             .catch((error) => {
                 console.error(error.message);
             });
     }
 }
+
+window.unregister = unregister;

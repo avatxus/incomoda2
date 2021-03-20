@@ -17,3 +17,43 @@
 .menuButtonWrapper:focus {
     background: var(--outline-bg);
 }
+
+hr {
+    width: 80%;
+    color: var(--color);
+    /* height: 1px; */
+}
+
+.navWrapper {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.navTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    margin: 8px 0;
+    font-weight: 800;
+    height: auto;
+    color: var(--color);
+}
+
+.menuLink {
+    text-decoration: none;
+    color: var(--color);
+    font-weight: 500;
+    font-size: var(--font-size);
+    letter-spacing: 0.5;
+    padding: 8px 4px;
+}
+
+@media (max-height: 600px) {
+    .menuLink {
+        padding: 4px 0;
+        line-height: 16px;
+    }
+}

@@ -1,4 +1,4 @@
-const sendMessage = (msg) => {
+const sendMessage = (msg, timeout = 7000) => {
   const messenger = document.getElementById('messenger');
   messenger && (messenger.style['bottom'] = '0');
   const messengerInner = document.getElementById('messenger-inner');
@@ -6,7 +6,7 @@ const sendMessage = (msg) => {
   setTimeout(() => {
     const msg = document.getElementById('messenger');
     msg && (msg.style['bottom'] = '-100px');
-  }, 7000);
+  }, timeout);
 };
 
 export default sendMessage;
