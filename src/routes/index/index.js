@@ -14,6 +14,8 @@ import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 
 import iosAction from '../../assets/icons/ios-action-custom.svg';
 
+console.log("WHAT IS THIS???")
+
 const Page = () => {
     const appState = useAppState();
     const appDispatch = useAppDispatch();

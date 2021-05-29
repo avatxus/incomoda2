@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { use100vh } from 'react-div-100vh';
 import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
+import ReactGA from 'react-ga';
 
 import { AppProvider } from './contexts/AppContext';
 import Loader from './components/Loader';
@@ -12,6 +13,9 @@ const Book = lazy(() => import('./routes/book'));
 const Config = lazy(() => import('./routes/config'));
 
 const APP_PADDING = window.innerWidth > 500 ? 24 * 2 : 0;
+
+ReactGA.initialize('UA-193662890-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 function Fallback() {
     return (

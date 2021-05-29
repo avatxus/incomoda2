@@ -1,9 +1,3 @@
-<!-- Book Title -->
-<div lang="es" class="book-title-wrapper">
-  <div class="book-title">Incómoda</div>
-  <div class="book-subtitle">Cuerpos Libres</div>
-</div>
-
 <!-- Legals -->
 <div aria-hidden="true" class="legals last-p">
   <div class="text-center">Incómoda : cuerpos libres / Marcela Laudonio; editora literaria Victoria Van Morlegan. - 1a ed. - Ciudad Autónoma de Buenos Aires: Marcela Laudonio, 2020.</div>
@@ -16,7 +10,7 @@
   <div class="text-center">1. Moda. 2. Cuidado del Medio Ambiente. 3. Discriminación Basada en el Género.</div>
   <div class="text-center">I. Van Morlegan, Victoria, ed. Lit. II. Título. CDD 305.42</div>
   <div class="text-center">
-    <img class="isbn" src="/isbn.jpg" alt="ISBN">
+    <img class="isbn" src="/isbn.jpg" alt="ISBN" width="200" height="111">
   </div>
   <div class="text-center">
     Reservados todos los derechos.
@@ -26,12 +20,31 @@
   </div>
 </div>
 
+<!-- Video -->
+<div lang="es" class="video-wrapper">
+  <div class="video-container">
+    <div id="player" onclick="loadVideo()">
+      <img src="/video-image.jpg" class="video-placeholder" alt="imagen-video" width="452" height="245" />
+      <div class="video-play-button-wrapper">
+        <img src="/yt-play.png" class="video-play-button" alt="play-button" />
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Book Title -->
+<div lang="es" class="book-title-wrapper">
+  <div class="book-title">Incómoda</div>
+  <div class="book-subtitle">Cuerpos Libres</div>
+</div>
+
 <!-- Index -->
 <div aria-hidden="true" class="index-wrapper">
   <div class="index-title">Incómoda</div>
   <div class="index-subtitle">Marcela Laudonio</div>
 
-  <ol class="index-list">
+  <ol class="index-list" aria-hidden="true">
     <li><a href="#introduccion" class="index-link">Introducción</a></li>
     <li><a href="#tipificacion" class="index-link">La tipificación de los cuerpos</a></li>
     <li><a href="#mandato" class="index-link">El mandato de encontrar un estilo</a></li>
@@ -156,7 +169,7 @@ Con la Primera Guerra Mundial y la necesidad de ocupar mujeres en puestos de tra
 
 En la década del 20, durante la posguerra, esa liberación se hace mucho más notoria: los vestidos son totalmente sueltos, los zapatos son bajos, el pelo se lleva corto. A partir de la crisis del 29, la austeridad marcará el estilo de vida de la época.
 
-Sin embargo, con la invención de las telas sintéticas, nuevamente la figura femenina se estiliza. El pelo vuelve a usarse un poco más largo, con ondas; se llevan sombreros grandes, ornamentados con plumas, flores, y tules, y vestidos con escotes pronunciados. Pero es también en esta década que se introduce el uso del pantalón como prenda popular entre las mujeres, más allá de que mucho antes las feministas de las distintas épocas habían llevado a cabo diferentes luchas por imponer su uso.
+No obstante, con la invención de las telas sintéticas, nuevamente la figura femenina se estiliza. El pelo vuelve a usarse un poco más largo, con ondas; se llevan sombreros grandes, ornamentados con plumas, flores, y tules, y vestidos con escotes pronunciados. Pero es también en esta década que se introduce el uso del pantalón como prenda popular entre las mujeres, más allá de que mucho antes las feministas de las distintas épocas habían llevado a cabo diferentes luchas por imponer su uso.
 
 En 1851, Elizabeth Smith Miller, defensora de los derechos de las mujeres, activista de lo que se conoció como movimiento de la vestimenta racional, se mostró públicamente con un traje compuesto por pantalones sueltos fruncidos en el tobillo sobre el que usaba un vestido corto o una falda y chaleco. Este movimiento estaba compuesto principalmente por mujeres de clase media involucradas en la primera ola del feminismo que reclamaban entre otras cosas, la emancipación de los dictados de la moda, promoviendo el uso de prendas más prácticas y cómodas. Esta vestimenta a su vez fue adoptada por Amelia Bloomer, editora de _The Lily_ <span class="inline-block">-un</span> periódico dedicado a la "Emancipación de la mujer, la injusticia, el prejuicio y el <span class="inline-block">fanatismo"-</span>. Bloomer se convirtió en una gran promotora de esta forma de vestir e incluso publicó instrucciones para realizar los pantalones, inspirando un boom y haciéndose conocidos como bloomer’s. Quienes lo usaban lo llamaban "vestimenta de la libertad".
 
@@ -194,9 +207,9 @@ Tanto los 60 como los 70 fueron momentos de libertad en la forma de vestir: pant
 
 Sin embargo, también se dio al mismo tiempo una explotación del cuerpo de la mujer como no había ocurrido en ningun otro momento. En el mundo de la moda, la modelo Twiggy marcó el ideal de belleza de la época, una modelo de talla diminuta, cuyas medidas, peso y altura, eran aún más reducidas que las de las modelos habituales. Por otra parte, la publicación de la revista _Playboy_, dedicada a mostrar fotos de mujeres desnudas o con poca ropa, alcanzó en la década del 70 y la siguiente su mayor apogeo. Entonces, por un lado, las mujeres podían vestirse con ropa cómoda y ocupar espacios que habían sido terreno exclusivo de los varones, pero por otro lado, no dejaban de ser presionadas a conservar cierto tipo de cuerpo que resultara “atractivo" para los hombres. Playboy junto a otras revistas del mismo estilo y la creación del cine erótico/pornográfico, cuyo contenido reflejan un tipo de belleza extremadamente hegemónico, muestran a la mujer junto a una serie de bienes de lujo tales como mansiones, autos, relojes y bebidas alcohólicas, todo destinado a satisfacer el placer masculino y presentándola como un burdo objeto de deseo.
 
-En los años 80, si bien hay una gran mezcla difícil de clasificar, empieza a vislumbrarse nuevamente una vuelta a la figura de reloj de arena. Thierry Mugler, diseñador francés, es quien desde la moda vuelve a poner sobre la pasarela esta forma. Su ropa está definida por una marcada geometría y tiene reminiscencia de los diseños de mediados de siglo, una especie de “New Look aggiornado".
+En los años 80, si bien hay una gran mezcla difícil de clasificar, empieza a vislumbrarse nuevamente una vuelta a la figura de reloj de arena. Thierry Mugler, diseñador francés, es quien desde la moda vuelve a poner sobre la pasarela esta forma. Su ropa está definida por una marcada geometría y tiene reminiscencia de los diseños de mediados de siglo, una especie de “New Look aggiornado". Vuelve a tomar peso esta idea de “devolverle" a la mujer la femineidad a través de un tipo de ropa que resalte sus curvas.
 
-Nuevamente vuelve a tomar peso esta idea de “devolverle" a la mujer la femineidad a través de un tipo de ropa que resalte sus curvas.
+Este resurgimiento aparece como contraposición a lo que se conoce como la tercera ola del feminismo, cuya exponente más conocida es la escritora Naomi Wolf. En su libro _El mito de la belleza_, Wolf plantea que la moda y la industria de la belleza son instrumentos de explotación de la mujer. Sostiene que las mujeres occidentales viven bajo la presión constante de ajustarse a un concepto idealizado de belleza creado por la sociedad moderna y que el gran peligro radica en el daño a la autoestima convirtiéndolas en personas débiles e inseguras.
 
 Pero quien logra reinstalar esta forma de cuerpo es el diseñador italiano Gianni Versace. Con un tipo de diseño estridente y ostentoso captura la atención de celebridades del mundo artístico y el deporte, ya que sus colecciones son destinadas a mujeres y hombres.
 
@@ -208,7 +221,7 @@ En paralelo surge el grunge, un movimiento que proviene del mundo de la música 
 
 Tanto en los años 60 con el rock, en los 70 y los 80 con el punk y en los 90 con el grunge, la música ha funcionado como un instrumento liberador y de expresión de rebeldía y enojo, sobre todo para la gente joven. En este caso, la moda se ha adaptado a la necesidad que estos jóvenes tenían, reflejando sus gustos y elecciones a la hora de vestirse. En este contexto, el proceso creativo de los diseñadores ha partido del afuera, acompañando la tendencia en lugar de imponerla.
 
-Al contrario de lo que en el mundo de la moda se define como innovador y revolucionario, cierto tipo de diseño que se popularizó en especial a mediados de los 90 y parte de la década del 2000 de la mano de diseñadores como Alexander McQueen y John Galliano <span class="inline-block">-cuyo</span> talento y capacidad creativa no está en <span class="inline-block">discusión-</span>, la bajada a la calle de este tipo de diseño ha resultado muy poco favorable para la vida de la mujer común que no transita por una pasarela, e incluso para las mismas modelos que desfilaban esa ropa. A Alexander Mc Queen le debemos por ejemplo, la vuelta de la tortuosa moda de los pantalones tiro bajo llevada al extremo, en la década del 90. El show que presentan estos diseñadores, como hecho artístico, es innegable. Sin embargo, cuando ese tipo de creación llega al mundo real termina convirtiéndose en un híbrido que casi nunca resulta cómodo. En cambio, me gustaría destacar el trabajo de diseñadores más clásicos, que con sus diseños de líneas simples y cortes impecables, han brindado a la mujer un tipo de ropa que posibilita su comodidad y además no responde a una moda del momento. Giorgio Armani, Ralph Lauren, Calvin Klein, Stella Mc Cartney, son algunos de los referentes de este tipo de ropa que además es más adaptable a cualquier tipo de cuerpo.
+Al contrario de lo que en el mundo de la moda se define como innovador y revolucionario, cierto tipo de diseño que se popularizó en especial a mediados de los 90 y parte de la década del 2000 de la mano de diseñadores como Alexander McQueen y John Galliano <span class="inline-block">-cuyo</span> talento y capacidad creativa no está en <span class="inline-block">discusión-</span>, la bajada a la calle de este tipo de diseño ha resultado muy poco favorable para la vida de la mujer común que no transita por una pasarela, e incluso para las mismas modelos que desfilaban esa ropa. A Alexander Mc Queen le debemos por ejemplo, la vuelta de la tortuosa moda de los pantalones tiro bajo llevada al extremo. El show que presentan estos diseñadores, como hecho artístico, es innegable. Sin embargo, cuando ese tipo de creación llega al mundo real termina convirtiéndose en un híbrido que casi nunca resulta cómodo. En cambio, me gustaría destacar el trabajo de diseñadores más clásicos, que con sus diseños de líneas simples y cortes impecables, han brindado a la mujer un tipo de ropa que posibilita su comodidad y además no responde a una moda del momento. Giorgio Armani, Ralph Lauren, Calvin Klein, Stella Mc Cartney, son algunos de los referentes de este tipo de ropa que además es más adaptable a cualquier tipo de cuerpo.
 
 Actualmente y en plena revolución feminista, la figura de reloj de arena vuelve a vislumbrarse en muchas de las colecciones presentadas por las marcas más renombradas. Casualmente o no, Dior presentó en su colección “Crucero 2021", el corsé como eje central de la misma. Un corsé de cuero rígido, con encordado, que marca la cintura y evidencia nuevamente una silueta oprimida y de movimiento limitado. Descripta por la propia marca como “una colección inspirada en la región italiana de Puglia y su belleza natural", ninguno de los medios especializados hace alusión al llamativo regreso, sobre las pasarelas, de la prenda más representativa de la opresión del cuerpo de la mujer. Junto a Dior, muchas otras marcas de alta costura mostraron colecciones que muestran un tipo de mujer que no refleja ni la lucha ni el empoderamiento femenino actual.
 
@@ -227,7 +240,9 @@ La delgadez extrema continúa predominando aunque la realidad nos revele que es 
   </p>
 </div>
 
-El canon de belleza ideal que conocemos nace de una fórmula matemática creada por los griegos: un cálculo basado en una serie de medidas y proporciones que fue pensado para la realización de esculturas. Esta medición fue explicada por el escultor Policleto en un libro llamado _Kanon_.
+El canon de belleza ideal nace de una fórmula matemática creada por los griegos: un cálculo basado en una serie de medidas y proporciones que fue pensado para la realización de esculturas. Esta medición fue explicada por el escultor Policleto en un libro llamado _Kanon_.
+
+Pero es el famoso dibujo del _Hombre de Vitruvio_ o _Estudio de las proporciones ideales del cuerpo_ realizado por Leonardo Da Vinci alrededor del año 1490, la medición que aún hoy es utilizada para definir si un cuerpo es proporcionado o no. Se trata de un estudio de las proporciones del cuerpo humano, realizado a partir de los textos del arquitecto de la antigua Roma Marco Vitruvio Polión.
 
 Lo cierto es que la forma de los cuerpos reales, nada tiene que ver con fórmulas matemáticas. La formación del cuerpo más allá de la cuestión estrictamente biológica, es también determinada por el espacio geográfico y el contexto sociopolítico y económico. Desde nuestra gestación hasta que nacemos, cómo somos alimentados, dónde vivimos y qué tipo de educación recibimos son factores determinantes.
 
@@ -667,7 +682,7 @@ Lamentablemente el trabajo esclavo es un eje fundamental para que el negocio sea
 
 Desde mi lugar, el aporte que puedo hacer es decirte que liberarte de la presión del consumo te saca un gran peso de encima. Tener un placard lleno de ropa no te da absolutamente nada. La felicidad instantánea que te produce comprar algo nuevo, cuando no te sentís bien, no dura más que ese momento en el que estás comprando. Es difícil, en el contexto del sistema imperante, pensar que podemos vivir por fuera de sus reglas, sin embargo, es en la acción del consumo donde más fácilmente podemos ejercer cierta libertad. El acceso a la información es elemental para entender de qué manera se puede poner freno a una problemática que nos afecta a todos.
 
-¿Pero cómo funciona el cerebro cuando consumimos cosas que no necesitamos e incluso que ni siquiera nos gustan?
+<div class="chapter-subtitle">¿Cómo funciona el cerebro cuando consumimos cosas que no necesitamos e incluso que ni siquiera nos gustan?</div>
 
 Especialistas en marketing han analizado que el cerebro actúa de una forma particular cuando estamos comprando: sostienen que la mayoría de las veces que compramos algo no lo hacemos por necesidad sino por deseo. Pero ese deseo es, generalmente, impuesto. Algunos estudios que se han realizado basan su análisis en la teoría del triple cerebro del neurocientífico americano Paul MacLean, médico egresado de la Universidad de Yale, que hizo contribuciones significativas en los campos de la psicología y la psiquiatría. La idea del triple cerebro sostiene que en el encéfalo humano habitan tres sistemas cerebrales distintos con sus propias lógicas y funcionamientos. Según esta teoría cada uno de estos sistemas ha ido apareciendo en nuestra línea evolutiva de manera secuencial el uno sobre el otro.
 
@@ -699,7 +714,7 @@ Podría seguir poniendo cientos de datos con las estadísticas que revelan que e
 
 Gran parte de la riqueza mundial se concentra en apenas el 1% de la población. Si entendemos que muchos de nosotros también somos facilitadores de esta desigualdad y que tenemos una opción concreta de corrernos de ese lugar, modificando nuestros hábitos de consumo, entonces habrá realmente una posibilidad de cambio.
 
-Desde finales del año 2019 un virus de origen zoonótico denominado COVID 19 (Coronavirus) <span class="inline-block">-proveniente</span> de la ciudad de Wuhan en <span class="inline-block">China-</span> acecha a la población mundial. Este virus se esparció rápidamente por todo el mundo dejando como resultado más de ochenta millones de personas infectadas y más de dos millones de muertos. Además generó un desastre económico sin precedentes en la historia.
+Desde finales del año 2019 un virus de origen zoonótico denominado COVID 19 (Coronavirus) <span class="inline-block">-proveniente</span> de la ciudad de Wuhan en <span class="inline-block">China-</span> acecha a la población mundial. Este virus se esparció rápidamente por todo el mundo dejando como resultado millones de personas fallecidas. Además generó un desastre económico sin precedentes en la historia.
 
 La industria textil se detuvo al principio de la pandemia al igual que muchas otras, ya que el virus nos obligó al confinamiento. Hasta el momento, la única manera que tenemos de no contagiarnos es quedarnos aislados en nuestras casas; si salimos debemos hacerlo con barbijo, mantener una distancia de un metro y medio y lavarnos las manos o limpiarlas con alcohol cada vez que entramos o salimos de algún lugar. Si bien ya existen varias vacunas contra este virus, desarrolladas en un tiempo récord y con aparentes buenos resultados, lo cierto es que aún falta bastante tiempo para volver a una vida que nos permita salir a la calle sin temor de contraer una enfermedad cuyo desenlace resulta bastante incierto. Lamentablemente, como siempre sucede, la gente que más padece las consecuencias es la que menos recursos tiene.
 
@@ -715,7 +730,7 @@ Es por este motivo que no podemos quedarnos a la espera de que los mismos empres
 
 La industria textil y todos los miembros que la integran, tales como productores, ejecutivos, directores creativos, diseñadores, grandes editoriales dedicadas al sector y el resto de los participantes de líneas jerárquicas, están reuniéndose para ver de qué manera se cambia el sistema actual de moda por uno más eficiente. Mi sensación es que, exceptuando a unas pocas marcas, el interés primordial pasa por seguir vendiendo y si hay un cambio en la cantidad de ropa que se produce, será solo por no perder dinero y no porque hayan tomado conciencia real del daño que han causado. De hecho las marcas de lujo, cuyos principales consumidores se encuentran en el mercado asiático <span class="inline-block">-específicamente</span> en <span class="inline-block">China-,</span> han igualado en el último trimestre del 2020, las ventas del año 2019. Una de las razones por las cuales estas marcas no han perdido dinero en esta pandemia, se debe fundamentalmente a la gran inversión que han hecho en marketing y construcción de marca durante toda su historia. Este nivel de venta de un producto que es a las claras absolutamente innecesario para la vida de cualquier ser humano, no hace más que evidenciar lo difícil que es frenar el impulso de consumir lo que sea, aún en momentos tan trágicos como los generados por una pandemia.
 
-Sin embargo, a pesar de la gravedad que este problema representa y de la forma vil en que se ha manejado esta industria, estamos en un dilema muy grande, porque como he mencionado, millones de personas viven de ella. En muchísimos países es la principal generadora de empleo de estas poblaciones: ahí está la gran trampa del sistema. Frente a este problema hay quienes plantean que de esta situación se sale con la intervención del Estado y que esta intervención debe realizarse a partir de la conformación de leyes que protejan los derechos de los trabajadores y del medioambiente. Sostienen que la voluntad política de los gobiernos de todo el mundo es indispensable para promover el cambio socioambiental. Sin embargo, estas corporaciones multinacionales son las que realmente tienen el poder y las que sostienen económicamente las campañas políticas de quienes llegan a los gobiernos. Son ellas también las que transgreden las muchas leyes que ya existen para proteger a los ciudadanos y a los territorios, de las atrocidades que cometen.
+Sin embargo, a pesar de la gravedad que este problema representa y de la forma vil en que se ha manejado esta industria, estamos en un dilema muy grande, porque como he mencionado, millones de personas viven de ella. En muchísimos países es la principal generadora de empleo de estas poblaciones: ahí está la gran trampa del sistema. Frente a este problema hay quienes plantean que de esta situación se sale con la intervención del Estado y que esta intervención debe realizarse a partir de la conformación de leyes que protejan los derechos de los trabajadores y del medioambiente. Sostienen que la voluntad política de los gobiernos de todo el mundo es indispensable para promover el cambio socioambiental. Pero son estas corporaciones multinacionales las que realmente tienen el poder y las que sostienen económicamente las campañas políticas de quienes llegan a los gobiernos. Son ellas también las que transgreden las muchas leyes que ya existen para proteger a los ciudadanos y a los territorios de las atrocidades que cometen.
 
 Me pregunto: ¿hasta cuándo seremos capaces de soportar que sean las empresas quienes manejan nuestro destino? ¿Hasta cuándo podemos seguir viviendo como si nada sucediera, sabiendo que estas empresas están destruyendo todo? El discurso de que son imprescindibles para la generación de empleo y el desarrollo de las economías del mundo y que sin ellas no podemos avanzar, dadas las malas condiciones en las que vive la mayoría de la gente, está completamente obsoleto.
 

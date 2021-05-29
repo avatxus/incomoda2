@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import MarkdownIt from 'markdown-it';
 import Swipe from 'react-easy-swipe';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import ReactGA from 'react-ga';
 
 import styles from './index.module.css';
 import Header from '../../components/header';
@@ -14,6 +15,11 @@ import { useAppState, useAppDispatch } from '../../contexts/AppContext';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import book from '../../assets/markdown/book3.md';
+import { stopVideo } from '../../lib/video';
+
+const isInWebAppiOS = window.navigator.standalone === true;
+
+const BOOK_START_PAGE = 6;
 
 const md = new MarkdownIt({ html: true });
 
@@ -41,8 +47,11 @@ const Page = () => {
     const pageLoaded = useRef(false);
     const history = useHistory();
     const [html, setHtml] = useState();
+    const nextRef = useRef();
+    const prevRef = useRef();
 
     useEffect(() => {
+        ReactGA.pageview('/book');
         fetch(book)
             .then((res) => res.text())
             .then((res) => setHtml(md.render(res)));
@@ -52,17 +61,30 @@ const Page = () => {
         (type) => {
             if (type === null) return;
             let scrollLeft;
+            if (appState.currentPage === 2) stopVideo();
             removeHash();
             switch (type) {
                 case 'increment':
                     scrollLeft = appState.clientWidth * appState.currentPage;
                     pageRef.current.scrollLeft = scrollLeft;
+                    window.requestAnimationFrame(() => {
+                        nextRef?.current?.blur();
+                        window.scrollTo({
+                            top: 0,
+                        });
+                    });
                     appDispatch({ type: 'INCREMENT_PAGE', scrollLeft });
                     break;
                 case 'decrement':
                     if (pageRef.current.scrollLeft === 0) return;
                     scrollLeft = appState.clientWidth * (appState.currentPage - 2);
                     pageRef.current.scrollLeft = scrollLeft;
+                    window.requestAnimationFrame(() => {
+                        prevRef?.current.blur();
+                        window.scrollTo({
+                            top: 0,
+                        });
+                    });
                     appDispatch({ type: 'DECREMENT_PAGE', scrollLeft });
                     break;
                 default:
@@ -96,21 +118,113 @@ const Page = () => {
         [appState.isFirstPage, appState.isLastPage, history, setActivePage],
     );
 
+    const getClientWidth = useCallback(() => {
+        if (!pageRef.current) return;
+        return parseFloat(window.getComputedStyle(pageRef.current).width);
+    }, []);
+
+    const getCurrentPage = useCallback(
+        (appState) => {
+            if (!pageRef.current) return;
+            const clientWidth = getClientWidth();
+            return appState.currentPage ? appState.currentPage : clientWidth ? Math.round(pageRef.current.scrollLeft / clientWidth) + 1 : 1;
+        },
+        [getClientWidth],
+    );
+
+    const getPagesCount = useCallback(
+        (appState) => {
+            if (!pageRef.current) return;
+            const clientWidth = getClientWidth();
+            return Math.round(pageRef.current.scrollWidth / clientWidth);
+        },
+        [getClientWidth],
+    );
+
+    const calculateCurrentPageOnRefresh = useCallback(() => {
+        const clientWidth = parseFloat(window.getComputedStyle(pageRef.current).width);
+        const pagesCount = getPagesCount(appState);
+        let currentPage = getCurrentPage(appState);
+
+        let scrollLeft = appState.scrollLeft ? appState.scrollLeft : clientWidth * (currentPage - 1);
+
+        if (pagesCount !== appState.pagesCount && currentPage > BOOK_START_PAGE) {
+            currentPage = (appState.progress * pagesCount) / 100;
+            if (pagesCount > appState.pagesCount) {
+                console.log('bigger font size');
+                currentPage = currentPage - appState.pagesCount / 100;
+            } else {
+                console.log('smaller font size');
+                currentPage++;
+            }
+            console.log('new progress', (currentPage * 100) / pagesCount);
+            scrollLeft = clientWidth * (Math.round(currentPage) - 1);
+        }
+        console.log({ pagesCount, fontSize: appState.fontSize, prevFontSize: appState.prevFontSize });
+        const fontSize = appState.fontSize ? appState.fontSize : 16;
+        pageRef.current.scrollLeft = scrollLeft;
+        appDispatch({ type: 'SET_INITIAL_DATA', pagesCount, currentPage: Math.round(currentPage), scrollLeft, fontSize, clientWidth });
+    }, [appDispatch, appState, getCurrentPage, getPagesCount]);
+
+    const calculateCurrentPageOnResize = useCallback(() => {
+        const clientWidth = parseFloat(window.getComputedStyle(pageRef.current).width);
+        const pagesCount = getPagesCount(appState);
+        let currentPage = getCurrentPage(appState);
+
+        let scrollLeft = clientWidth * (currentPage - 1);
+        // console.log('handle resize client width', { clientWidth, pagesCount, currentPage, scrollWidth: pageRef.current.scrollWidth });
+        if (pagesCount !== appState.pagesCount && currentPage > BOOK_START_PAGE) {
+            currentPage = Math.round((appState.progress * pagesCount) / 100);
+
+            // if (pagesCount > appState.pagesCount) {
+            //     console.log('smaller window');
+            //     currentPage = currentPage - appState.pagesCount / 100;
+            // } else {
+            //     console.log('bigger window');
+            //     currentPage++;
+            // }
+            console.log('new progress', (currentPage * 100) / pagesCount);
+            scrollLeft = clientWidth * (currentPage - 1);
+        }
+        pageRef.current.scrollLeft = scrollLeft;
+        appDispatch({ type: 'SET_INITIAL_DATA', pagesCount, currentPage, clientWidth, scrollLeft });
+        // pageRef.current.scrollLeft = clientWidth * (currentPage - 1);
+    }, [appDispatch, appState, getCurrentPage, getPagesCount]);
+
     // handle page resize or font change
     const handleResize = useCallback(() => {
         if (!pageLoaded.current) return;
         console.log('resizing triggered');
         setLoaded(false);
         window.requestAnimationFrame(() => {
-            const clientWidth = parseFloat(window.getComputedStyle(pageRef.current).width);
-            const pagesCount = Math.round(pageRef.current.scrollWidth / clientWidth);
-            const currentPage = clientWidth ? Math.round(pageRef.current.scrollLeft / clientWidth) + 1 : 1;
-            console.log('handle resize client width', { clientWidth, pagesCount, currentPage, scrollWidth: pageRef.current.scrollWidth });
-            appDispatch({ type: 'SET_INITIAL_DATA', pagesCount, currentPage, clientWidth });
-            pageRef.current.scrollLeft = clientWidth * (currentPage - 1);
+            calculateCurrentPageOnResize();
+            // const clientWidth = parseFloat(window.getComputedStyle(pageRef.current).width);
+            // const pagesCount = Math.round(pageRef.current.scrollWidth / clientWidth);
+            // let currentPage = clientWidth ? Math.round(pageRef.current.scrollLeft / clientWidth) + 1 : 1;
+            // let scrollLeft = appState.scrollLeft ? appState.scrollLeft : clientWidth * (currentPage - 1);
+            // // console.log('handle resize client width', { clientWidth, pagesCount, currentPage, scrollWidth: pageRef.current.scrollWidth });
+            // if (pagesCount !== appState.pagesCount) {
+            //     console.log({ pagesCount, old: appState.pagesCount });
+            //     console.log('appstateprogress', appState.progress);
+            //     // progress: (action.currentPage * 100) / action.pagesCount,
+            //     currentPage = Math.round((appState.progress * pagesCount) / 100);
+            //     console.log('newProgress', (currentPage * 100) / pagesCount);
+
+            //     // if (pagesCount < appState.pagesCount) {
+            //     //     console.log('MEHHHHHHHHHHHHHHHHHHHHHHHH');
+            //     //     currentPage++;
+            //     // } else {
+            //     //     currentPage--;
+            //     // }
+            //     // scrollLeft = clientWidth * (currentPage - 1);
+            // }
+            // // pageRef.current.scrollLeft = scrollLeft;
+            // appDispatch({ type: 'SET_INITIAL_DATA', pagesCount, currentPage, clientWidth, scrollLeft });
+            // pageRef.current.scrollLeft = clientWidth * (currentPage - 1);
+            // calculateCurrentPage();
             setLoaded(true);
         });
-    }, [appDispatch]);
+    }, [calculateCurrentPageOnResize]);
 
     // Keydown
     useEffect(() => {
@@ -132,22 +246,39 @@ const Page = () => {
 
         console.log('page refresh 3');
         setLoaded(false);
+        calculateCurrentPageOnRefresh();
         // window.requestAnimationFrame(() => {
-        const clientWidth = parseFloat(window.getComputedStyle(pageRef.current).width);
-        const pagesCount = Math.round(pageRef.current.scrollWidth / clientWidth);
-        const currentPage = appState.currentPage
-            ? appState.currentPage
-            : clientWidth
-            ? Math.round(pageRef.current.scrollLeft / clientWidth) + 1
-            : 1;
-        const scrollLeft = appState.scrollLeft ? appState.scrollLeft : clientWidth * (currentPage - 1);
-        const fontSize = appState.fontSize ? appState.fontSize : 16;
-        pageRef.current.scrollLeft = scrollLeft;
-        appDispatch({ type: 'SET_INITIAL_DATA', pagesCount, currentPage, scrollLeft, fontSize, clientWidth });
+        // const clientWidth = parseFloat(window.getComputedStyle(pageRef.current).width);
+        // const pagesCount = getPagesCount(appState);
+        // let currentPage = getCurrentPage(appState);
+
+        // let scrollLeft = appState.scrollLeft ? appState.scrollLeft : clientWidth * (currentPage - 1);
+
+        // if (pagesCount !== appState.pagesCount && currentPage > 5) {
+        //     currentPage = (appState.progress * pagesCount) / 100;
+        //     if (pagesCount > appState.pagesCount) {
+        //         console.log('bigger font size');
+        //         currentPage = currentPage - appState.pagesCount / 100;
+        //     } else {
+        //         console.log('smaller font size');
+        //         currentPage++;
+        //     }
+        //     console.log('new progress', (currentPage * 100) / pagesCount);
+        //     scrollLeft = clientWidth * (Math.round(currentPage) - 1);
+        // }
+        // console.log({ pagesCount, fontSize: appState.fontSize, prevFontSize: appState.prevFontSize });
+        // const fontSize = appState.fontSize ? appState.fontSize : 16;
+        // pageRef.current.scrollLeft = scrollLeft;
+        // appDispatch({ type: 'SET_INITIAL_DATA', pagesCount, currentPage: Math.round(currentPage), scrollLeft, fontSize, clientWidth });
         pageLoaded.current = true;
         setLoaded(true);
+        window.requestAnimationFrame(() => {
+            window.scrollTo({
+                top: 0,
+            });
+        });
         // });
-    }, [appDispatch, appState.currentPage, appState.fontSize, appState.scrollLeft, hash, html]);
+    }, [calculateCurrentPageOnRefresh, hash, html]);
 
     // Hash navigation
     useEffect(() => {
@@ -165,13 +296,12 @@ const Page = () => {
 
     // font resize
     useEffect(() => {
-        handleResize();
+        // handleResize();
     }, [appState.fontSize, handleResize]);
-    // console.log({ appState, pageRef });
 
     return (
-        <Swipe onSwipeLeft={onSwipedLeft} onSwipeRight={onSwipedRight} tolerance={80} style={{ height: '100%' }}>
-            <article className="wrapper" lang="es" style={{ height: 'calc(100% - 4px)' }}>
+        <Swipe onSwipeLeft={onSwipedLeft} onSwipeRight={onSwipedRight} tolerance={80} style={{ height: '100%', background: 'var(--bg)' }}>
+            <article className="wrapper" lang="es" style={{ height: isInWebAppiOS ? 'calc(100% - 8px)' : '100%' }}>
                 <Header />
                 <div className={styles.pageWrapper}>
                     <div
@@ -194,6 +324,7 @@ const Page = () => {
                                 aria-label="página-anterior"
                                 className={styles.navigation}
                                 onClick={() => setActivePage('decrement')}
+                                ref={prevRef}
                             >
                                 <ArrowLeftIcon fontSize="large" color="primary" />
                             </div>
@@ -204,6 +335,7 @@ const Page = () => {
                                 aria-label="pagina-anterior"
                                 className={styles.navigation}
                                 onClick={() => history.push('/')}
+                                ref={prevRef}
                             >
                                 <ArrowLeftIcon fontSize="large" color="primary" />
                             </div>
@@ -217,13 +349,14 @@ const Page = () => {
                             className={styles.navigation}
                             style={{ visibility: appState.isLastPage ? 'hidden' : 'visible' }}
                             onClick={() => setActivePage('increment')}
+                            ref={nextRef}
                         >
                             <ArrowRightIcon fontSize="large" color="primary" />
                         </div>
                     </div>
                 </div>
                 <div>
-                    <LinearProgress variant="determinate" value={appState ? appState.progress : 0} />
+                    <LinearProgress aria-hidden variant="determinate" value={appState ? appState.progress : 0} />
                 </div>
             </article>
         </Swipe>

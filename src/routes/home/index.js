@@ -25,7 +25,6 @@ const Page = () => {
         (e) => {
             switch (e.keyCode) {
                 case 39: // ArrowRight
-                case 40: // ArrowDown
                     onSwipeLeft();
                     break;
                 default:
@@ -53,7 +52,7 @@ const Page = () => {
 
     return (
         <Swipe onSwipeLeft={onSwipeLeft} style={{ height: '100%', width: '100%', display: 'flex', alignItems: 'center' }} tolerance={100}>
-            <div className="wrapper">
+            <div className="homeWrapper">
                 <div className={styles.pageWrapper}>
                     <Cover />
                     <div className={styles.pageFooter}>

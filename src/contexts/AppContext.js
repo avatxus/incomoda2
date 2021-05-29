@@ -65,7 +65,7 @@ function appReducer(state, action) {
                 isLastPage: state.currentPage + 1 === state.pagesCount,
                 isFirstPage: false,
                 scrollLeft: action.scrollLeft,
-                progress: (state.currentPage + 1) * 100 / state.pagesCount,
+                progress: ((state.currentPage + 1) * 100) / state.pagesCount,
             };
             break;
 
@@ -76,7 +76,7 @@ function appReducer(state, action) {
                 isFirstPage: state.currentPage - 1 === 1,
                 isLastPage: false,
                 scrollLeft: action.scrollLeft,
-                progress: (state.currentPage - 1) * 100 / state.pagesCount,
+                progress: ((state.currentPage - 1) * 100) / state.pagesCount,
             };
             break;
         case 'SET_INITIAL_DATA':
@@ -104,6 +104,7 @@ function appReducer(state, action) {
         case 'SET_FONT_SIZE':
             output = {
                 ...state,
+                prevFontSize: state.fontSize,
                 fontSize: action.fontSize,
             };
             setFontSize(action.fontSize);
@@ -114,12 +115,7 @@ function appReducer(state, action) {
                 hasConfig: true,
             };
             break;
-        case 'SET_LEGAL_VIEWED':
-            output = {
-                ...state,
-                legal: true,
-            };
-            break;
+
         case 'SET_THEME':
             output = {
                 ...state,

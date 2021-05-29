@@ -12,9 +12,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    min-height: 800px;
     padding: 24px;
     -webkit-font-smoothing: auto;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -28,6 +29,8 @@ body {
     height: 100%;
     overscroll-behavior: none;
     -webkit-overflow-scrolling: none;
+    scroll-behavior: smooth;
+
     /* overflow: hidden; */
 }
 
@@ -76,7 +79,7 @@ p {
 }
 
 /* Global styles for the book */
-
+.homeWrapper,
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -88,6 +91,67 @@ p {
     width: 860px;
     height: 100%;
     font-size: var(--font-size);
+}
+
+
+.video-wrapper {
+    break-after: column;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.video-container {
+    overflow: hidden;
+    position: relative;
+    width: 99%;
+}
+
+.video-container::after {
+    padding-top: 56.25%;
+    display: block;
+    content: '';
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-play-button-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-play-button {
+    width: 64px;
+    height: 45px;
+}
+
+#player {
+    background-color: #000;
 }
 
 .legals {
@@ -110,7 +174,7 @@ p {
 }
 
 .isbn {
-    max-width: 50%;
+    max-width: 100%;
     margin: 16px 0;
 }
 
@@ -124,7 +188,7 @@ article p.skip-indent {
 
 .index-wrapper {
     break-after: column;
-    height: 100%;
+    height: 95%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -161,7 +225,7 @@ article p.skip-indent {
 
 .book-title-wrapper {
     break-after: column;
-    height: 100%;
+    height: 95%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -185,7 +249,7 @@ article p.skip-indent {
 
 .chapter-title {
     break-after: column;
-    height: 100%;
+    height: 95%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -293,7 +357,6 @@ article p.skip-indent {
     box-sizing: border-box;
 }
 
-
 #messenger {
     width: 100%;
     height: auto;
@@ -327,15 +390,19 @@ article p.skip-indent {
 }
 
 @media (max-width: 2048px) {
+    .homeWrapper,
     .wrapper {
-        width: 800px;
+        max-width: 600px;
     }
 }
 
 @media (max-width: 1024px) {
-    .wrapper {
+    /* #app {
+        min-height: 100%;
+    } */
+    /* .wrapper {
         width: 700px;
-    }
+    } */
 }
 
 @media (max-width: 768px) {
@@ -348,14 +415,15 @@ article p.skip-indent {
         line-height: 24px;
         /* padding: 0; */
     }
+    .homeWrapper,
     .wrapper {
         width: 640px;
     }
 }
 @media (max-height: 1024px) {
-    .wrapper {
+    /* .wrapper {
         width: 600px;
-    }
+    } */
     /* .chapter-title {
         height: 100% !important;
         font-size: 32px;
@@ -388,12 +456,12 @@ article p.skip-indent {
 }
 
 @media (max-height: 800px) {
-    .wrapper {
-        width: 440px;
+    .homeWrapper {
+        /* width: 440px; */
     }
 }
 
-@media (max-height: 600px) {
+/* @media (max-height: 600px) {
     .wrapper {
         width: 296px;
     }
@@ -427,7 +495,7 @@ article p.skip-indent {
     .index-list li {
         padding: 0;
     }
-}
+} */
 
 @media (max-width: 500px) {
     html {
@@ -436,12 +504,14 @@ article p.skip-indent {
     body {
         font-size: 16px;
         line-height: 24px;
+        overflow: hidden;
     }
     #app {
         padding: 0;
+        min-height: 100%;
     }
     .chapter-title {
-        height: 100% !important;
+        /* height: 100% !important; */
         font-size: 32px;
     }
     .wrapper {

@@ -51,9 +51,9 @@ hr {
     padding: 8px 4px;
 }
 
-@media (max-height: 600px) {
+/* @media (max-height: 600px) {
     .menuLink {
         padding: 4px 0;
         line-height: 16px;
     }
-}
+} */
