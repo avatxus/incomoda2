@@ -1,18 +1,13 @@
-import React, { useCallback, useMemo } from 'react';
-import Drawer from '@material-ui/core/Drawer';
+import React, { useCallback, useMemo, useRef } from 'react';
 
 import styles from './index.module.css';
 import MenuBookOutlinedIcon from '@material-ui/icons/MenuBookTwoTone';
 import { useAppState } from '../../contexts/AppContext';
+import SideNav from './sidenav';
 
 const CustomLink = ({ href, onClick, children }) => {
     return (
-        <a
-            onClick={onClick}
-            className={styles.menuLink}
-            href={href}
-            native="true"
-        >
+        <a onClick={onClick} className={styles.menuLink} href={href} native="true">
             {children}
         </a>
     );
@@ -28,53 +23,45 @@ const Title = () => {
 };
 
 const Menu = ({ showNav, setShowNav }) => {
+    const menuRef = useRef();
+
     const hideNav = useCallback(() => {
         setShowNav(false);
     }, [setShowNav]);
 
     const navItems = useMemo(
         () => [
-            <CustomLink key="menu" href="/?menu=true">Inicio</CustomLink>,
+            <CustomLink key="menu" href="/?menu=true">
+                Inicio
+            </CustomLink>,
             <CustomLink key="config" href="/config" onClick={hideNav}>
                 Configuración
             </CustomLink>,
-            <CustomLink key="intro" href="/book#introduccion" onClick={hideNav}>
-                Introducción
+            <CustomLink key="video" href="/video" onClick={hideNav}>
+                Video
             </CustomLink>,
-            <CustomLink key="tipificacion" href="/book#tipificacion" onClick={hideNav}>
-                La tipificación de los cuerpos
-            </CustomLink>,
-            <CustomLink key="mandato" href="/book#mandato" onClick={hideNav}>
-                El mandato de encontrar un estilo
-            </CustomLink>,
-            <CustomLink key="maternidad" href="/book#maternidad" onClick={hideNav}>
-                Imagen y maternidad
-            </CustomLink>,
-            <CustomLink key="contaminacion" href="/book#contaminacion" onClick={hideNav}>
-                Moda, contaminación ambiental y métodos de trabajo
-            </CustomLink>,
-            <CustomLink key="cambios" href="/book#cambios" onClick={hideNav}>
-                Pequeñas acciones, grandes cambios
+            <CustomLink key="indice" href="/book#indice" onClick={hideNav}>
+                Índice
             </CustomLink>,
         ],
         [hideNav],
     );
 
+    const handleClick = useCallback(() => {
+        menuRef?.current?.blur();
+        setShowNav(true);
+    }, [setShowNav]);
+
     return (
         <div style={{ height: 'auto' }} aria-hidden="true">
-            <div role="button" tabIndex="0" className={styles.menuButtonWrapper} onClick={() => setShowNav(true)} aria-hidden>
+            <div ref={menuRef} role="button" tabIndex="0" className={styles.menuButtonWrapper} onClick={handleClick} aria-hidden>
                 <MenuBookOutlinedIcon size="large" color="primary" />
             </div>
-            <Drawer
-                open={showNav}
-                onBackdropClick={() => setShowNav(false)}
-                className={styles.drawer}
-                hysteresis={1}
-            >
+            <SideNav open={showNav} onBackdropClick={() => setShowNav(false)} className={styles.drawer} hysteresis={1}>
                 <Title />
                 <hr />
                 <div className={styles.navWrapper}>{navItems}</div>
-            </Drawer>
+            </SideNav>
         </div>
     );
 };

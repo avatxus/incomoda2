@@ -93,7 +93,6 @@ p {
     font-size: var(--font-size);
 }
 
-
 .video-wrapper {
     break-after: column;
     height: 95%;
@@ -163,6 +162,7 @@ p {
     font-size: 12px;
     letter-spacing: 0;
     line-height: 20px;
+    overflow-y: scroll;
 }
 
 .mt-16 {
@@ -213,6 +213,8 @@ article p.skip-indent {
 .index-list {
     margin: auto;
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .index-list li {
@@ -221,6 +223,11 @@ article p.skip-indent {
 .index-link {
     text-decoration: none;
     color: var(--color);
+    padding: 12px 0;
+}
+
+.index-list a:hover {
+    color: var(--main-color);
 }
 
 .book-title-wrapper {
@@ -495,7 +502,7 @@ article p.skip-indent {
     .index-list li {
         padding: 0;
     }
-} */
+}*/
 
 @media (max-width: 500px) {
     html {
@@ -545,5 +552,30 @@ article p.skip-indent {
 
     .MuiDrawer-paper {
         max-width: 75%;
+    }
+
+    .isbn {
+        max-width: 50%;
+        height: 70%;
+        margin: 8px 0;
+    }
+}
+
+@media (max-height: 600px) {
+    .legals {
+        font-size: 10px;
+    }
+
+    .mt-16 {
+        margin-top: 8px;
+    }
+
+    .mb-16 {
+        margin-bottom: 8px;
+    }
+    .isbn {
+        max-width: 50%;
+        height: 70%;
+        margin: 8px 0;
     }
 }

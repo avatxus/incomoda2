@@ -8,7 +8,7 @@ tag.src = 'https://www.youtube.com/iframe_api';
 const firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-window.loadVideo = function () {
+export function loadVideo() {
     player = new window.YT.Player(`player`, {
         videoId: YT_VIDEO_ID,
         events: {

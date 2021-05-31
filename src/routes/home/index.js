@@ -5,6 +5,7 @@ import Cover from './Cover.js';
 import styles from './index.module.css';
 import Swipe from 'react-easy-swipe';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import ReactGA from 'react-ga';
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -49,6 +50,10 @@ const Page = () => {
             history.push('/book');
         }
     }, [appState?.currentPage, history, menu]);
+
+    useEffect(() => {
+        ReactGA.pageview('/');
+    }, []);
 
     return (
         <Swipe onSwipeLeft={onSwipeLeft} style={{ height: '100%', width: '100%', display: 'flex', alignItems: 'center' }} tolerance={100}>
