@@ -15,11 +15,10 @@ import { useAppState, useAppDispatch } from '../../contexts/AppContext';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import book from '../../assets/markdown/book3.md';
-import { stopVideo } from '../../lib/video';
 
 const isInWebAppiOS = window.navigator.standalone === true;
 
-const BOOK_START_PAGE = 6;
+const BOOK_START_PAGE = 5;
 
 const md = new MarkdownIt({ html: true });
 
@@ -61,7 +60,6 @@ const Page = () => {
         (type) => {
             if (type === null) return;
             let scrollLeft;
-            if (appState.currentPage === 2) stopVideo();
             removeHash();
             switch (type) {
                 case 'increment':
@@ -196,34 +194,8 @@ const Page = () => {
         if (!pageLoaded.current) return;
         console.log('resizing triggered');
         setLoaded(false);
-        window.requestAnimationFrame(() => {
-            calculateCurrentPageOnResize();
-            // const clientWidth = parseFloat(window.getComputedStyle(pageRef.current).width);
-            // const pagesCount = Math.round(pageRef.current.scrollWidth / clientWidth);
-            // let currentPage = clientWidth ? Math.round(pageRef.current.scrollLeft / clientWidth) + 1 : 1;
-            // let scrollLeft = appState.scrollLeft ? appState.scrollLeft : clientWidth * (currentPage - 1);
-            // // console.log('handle resize client width', { clientWidth, pagesCount, currentPage, scrollWidth: pageRef.current.scrollWidth });
-            // if (pagesCount !== appState.pagesCount) {
-            //     console.log({ pagesCount, old: appState.pagesCount });
-            //     console.log('appstateprogress', appState.progress);
-            //     // progress: (action.currentPage * 100) / action.pagesCount,
-            //     currentPage = Math.round((appState.progress * pagesCount) / 100);
-            //     console.log('newProgress', (currentPage * 100) / pagesCount);
-
-            //     // if (pagesCount < appState.pagesCount) {
-            //     //     console.log('MEHHHHHHHHHHHHHHHHHHHHHHHH');
-            //     //     currentPage++;
-            //     // } else {
-            //     //     currentPage--;
-            //     // }
-            //     // scrollLeft = clientWidth * (currentPage - 1);
-            // }
-            // // pageRef.current.scrollLeft = scrollLeft;
-            // appDispatch({ type: 'SET_INITIAL_DATA', pagesCount, currentPage, clientWidth, scrollLeft });
-            // pageRef.current.scrollLeft = clientWidth * (currentPage - 1);
-            // calculateCurrentPage();
-            setLoaded(true);
-        });
+        calculateCurrentPageOnResize();
+        setLoaded(true);
     }, [calculateCurrentPageOnResize]);
 
     // Keydown
@@ -247,29 +219,6 @@ const Page = () => {
         console.log('page refresh 3');
         setLoaded(false);
         calculateCurrentPageOnRefresh();
-        // window.requestAnimationFrame(() => {
-        // const clientWidth = parseFloat(window.getComputedStyle(pageRef.current).width);
-        // const pagesCount = getPagesCount(appState);
-        // let currentPage = getCurrentPage(appState);
-
-        // let scrollLeft = appState.scrollLeft ? appState.scrollLeft : clientWidth * (currentPage - 1);
-
-        // if (pagesCount !== appState.pagesCount && currentPage > 5) {
-        //     currentPage = (appState.progress * pagesCount) / 100;
-        //     if (pagesCount > appState.pagesCount) {
-        //         console.log('bigger font size');
-        //         currentPage = currentPage - appState.pagesCount / 100;
-        //     } else {
-        //         console.log('smaller font size');
-        //         currentPage++;
-        //     }
-        //     console.log('new progress', (currentPage * 100) / pagesCount);
-        //     scrollLeft = clientWidth * (Math.round(currentPage) - 1);
-        // }
-        // console.log({ pagesCount, fontSize: appState.fontSize, prevFontSize: appState.prevFontSize });
-        // const fontSize = appState.fontSize ? appState.fontSize : 16;
-        // pageRef.current.scrollLeft = scrollLeft;
-        // appDispatch({ type: 'SET_INITIAL_DATA', pagesCount, currentPage: Math.round(currentPage), scrollLeft, fontSize, clientWidth });
         pageLoaded.current = true;
         setLoaded(true);
         window.requestAnimationFrame(() => {
@@ -277,13 +226,13 @@ const Page = () => {
                 top: 0,
             });
         });
-        // });
     }, [calculateCurrentPageOnRefresh, hash, html]);
 
     // Hash navigation
     useEffect(() => {
         if (!html || !hash || !pageRef.current) return;
         console.log('anchor triggered ');
+        // setLoaded(false);
         const id = hash.replace('#', '');
         const element = document.getElementById(id);
         if (element) element.scrollIntoView();
@@ -293,15 +242,11 @@ const Page = () => {
         pageLoaded.current = true;
         setLoaded(true);
     }, [appDispatch, appState.clientWidth, hash, html]);
-
-    // font resize
-    useEffect(() => {
-        // handleResize();
-    }, [appState.fontSize, handleResize]);
+    console.log('render');
 
     return (
         <Swipe onSwipeLeft={onSwipedLeft} onSwipeRight={onSwipedRight} tolerance={80} style={{ height: '100%', background: 'var(--bg)' }}>
-            <article className="wrapper" lang="es" style={{ height: isInWebAppiOS ? 'calc(100% - 8px)' : '100%' }}>
+            <article className="wrapper" lang="es" style={{ height: '100%' }}>
                 <Header />
                 <div className={styles.pageWrapper}>
                     <div
@@ -316,7 +261,7 @@ const Page = () => {
                             </div>
                         )}
                     </div>
-                    <div className={styles.pageFooter}>
+                    <div className={styles.pageFooter} style={{ bottom: isInWebAppiOS ? '8px' : '0' }}>
                         {!appState.isFirstPage ? (
                             <div
                                 tabIndex="0"

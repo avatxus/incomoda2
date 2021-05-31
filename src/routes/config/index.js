@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import MenuBookOutlinedIcon from '@material-ui/icons/MenuBookTwoTone';
 import Grid from '@material-ui/core/Grid';
 import Switch from '@material-ui/core/Switch';
+import ReactGA from 'react-ga';
 
 import { useAppDispatch, useAppState } from '../../contexts/AppContext';
 import FontSizeSlider from '../../components/font-size-slider';
@@ -10,7 +11,6 @@ import Header from '../../components/header';
 
 import styles from './index.module.css';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 
 import iosAction from '../../assets/icons/ios-action-custom.svg';
 
@@ -45,6 +45,10 @@ const Page = () => {
     }, [handleKeydown]);
 
     useEffect(() => {
+        ReactGA.pageview('/config');
+    }, []);
+
+    useEffect(() => {
         appDispatch({ type: 'SET_CONFIG_VIEWED' });
     }, [appDispatch]);
 
@@ -59,8 +63,8 @@ const Page = () => {
                     <div style={{ padding: '8px' }}>
                         <ul lang="es">
                             <li>
-                                Elegí un tamaño de letra que te quede cómodo. Siempre po&shy;dés vol&shy;ver a es&shy;ta
-                                pá&shy;gi&shy;na pa&shy;ra cam&shy;biar&shy;lo.
+                                Elegí un tamaño de letra que te quede cómodo. Siempre po&shy;dés vol&shy;ver a es&shy;ta pá&shy;gi&shy;na
+                                pa&shy;ra cam&shy;biar&shy;lo.
                             </li>
                             <li className={styles.fontSizeWrapper}>
                                 <span className={styles.slider}>
@@ -103,15 +107,6 @@ const Page = () => {
                     </div>
                 </div>
                 <div className={styles.pageFooter}>
-                    <div
-                        tabIndex="0"
-                        role="button"
-                        aria-label="pagina-anterior"
-                        className={styles.navigation}
-                        onClick={() => (appState.hasConfig ? history.push('/') : history.push('/config'))}
-                    >
-                        <ArrowLeftIcon fontSize="large" color="primary" />
-                    </div>
                     <div className={styles.navigation} onClick={() => history.push('/book')} tabIndex="0">
                         <ArrowRightIcon fontSize="large" color="primary" />
                     </div>

@@ -1,0 +1,38 @@
+.pageWrapper {
+    border-radius: 4px;
+    padding: 40px;
+    box-shadow: rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    height: 100%;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fefcea+0,efeee8+100 */
+    background: var(--bg); /* Old browsers */
+    background: var(--bg-gradient);
+    color: var(--color);
+    order: 1;
+    width: 100%;
+    overflow-y: scroll;
+    box-sizing: border-box;
+}
+
+.pageFooter {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navigation {
+    display: flex;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    border-radius: 50%;
+    touch-action: manipulation;
+}
+
+.navigation:focus {
+    background: var(--outline-bg);
+}

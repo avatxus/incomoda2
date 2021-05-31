@@ -20,19 +20,6 @@
   </div>
 </div>
 
-<!-- Video -->
-<div lang="es" class="video-wrapper">
-  <div class="video-container">
-    <div id="player" onclick="loadVideo()">
-      <img src="/video-image.jpg" class="video-placeholder" alt="imagen-video" width="452" height="245" />
-      <div class="video-play-button-wrapper">
-        <img src="/yt-play.png" class="video-play-button" alt="play-button" />
-      </div>
-    </div>
-
-  </div>
-</div>
-
 <!-- Book Title -->
 <div lang="es" class="book-title-wrapper">
   <div class="book-title">Incómoda</div>
@@ -40,18 +27,18 @@
 </div>
 
 <!-- Index -->
-<div aria-hidden="true" class="index-wrapper">
+<div id="indice" aria-hidden="true" class="index-wrapper">
   <div class="index-title">Incómoda</div>
   <div class="index-subtitle">Marcela Laudonio</div>
 
-  <ol class="index-list" aria-hidden="true">
-    <li><a href="#introduccion" class="index-link">Introducción</a></li>
-    <li><a href="#tipificacion" class="index-link">La tipificación de los cuerpos</a></li>
-    <li><a href="#mandato" class="index-link">El mandato de encontrar un estilo</a></li>
-    <li><a href="#maternidad" class="index-link">Imagen y maternidad</a></li>
-    <li><a href="#contaminacion" class="index-link">Moda, contaminación ambiental y métodos de trabajo</a></li>
-    <li><a href="#cambios" class="index-link">Pequeñas acciones, grandes cambios</a></li>
-  </ol>
+  <div class="index-list">
+    <a href="/book#introduccion" class="index-link" native="true">1. Introducción</a>
+    <a href="/book#tipificacion" class="index-link" native="true">2. La tipificación de los cuerpos</a>
+    <a href="/book#mandato" class="index-link" native="true">3. El mandato de encontrar un estilo</a>
+    <a href="/book#maternidad" class="index-link" native="true">4. Imagen y maternidad</a>
+    <a href="/book#contaminacion" class="index-link" native="true">5. Moda, contaminación ambiental y métodos de trabajo</a>
+    <a href="/book#cambios" class="index-link" native="true">6. Pequeñas acciones, grandes cambios</a>
+  </div>
 </div>
 
 <div class="chapter-title" id="introduccion">Introducción</div>
@@ -142,10 +129,11 @@ Los indicadores de que como sos no está bien y de que siempre hay algo defectuo
 
 <div class="no-break">
   <div class="chapter-subtitle">¿Cuál es el origen de esta tipificación?</div>
-  <p>
-    A lo largo de la historia podemos detectar diferentes momentos que fueron fundamentales para la instalación del ideal de belleza hegemónica existente. Un ideal de belleza que no solo fue planteado como una cuestión de seguir una moda, sino que también respondía a una categorización clasista y moralista de la mujer, estableciendo una división entre las que usaban un determinado tipo de vestimenta <span class="inline-block">-pensada</span> para alcanzar ese <span class="inline-block">ideal-</span> y las que no y definiendo, a partir de cómo estaban vestidas, si eran mujeres “decentes y respetables" o no lo eran. Categorización que lamentablemente sigue existiendo en la actualidad.
-  </p>
 </div>
+
+<p>
+  A lo largo de la historia podemos detectar diferentes momentos que fueron fundamentales para la instalación del ideal de belleza hegemónica existente. Un ideal de belleza que no solo fue planteado como una cuestión de seguir una moda, sino que también respondía a una categorización clasista y moralista de la mujer, estableciendo una división entre las que usaban un determinado tipo de vestimenta <span class="inline-block">-pensada</span> para alcanzar ese <span class="inline-block">ideal-</span> y las que no y definiendo, a partir de cómo estaban vestidas, si eran mujeres “decentes y respetables" o no lo eran. Categorización que lamentablemente sigue existiendo en la actualidad.
+</p>
 
 La figura del reloj de arena se origina a partir de la creación del corsé en el siglo XVI. Si bien esta icónica prenda tiene una larga historia que data de muchos siglos atrás que comienza en la Antigua Grecia, su momento de esplendor no se da hasta que empiezan a usarlo las damas de la nobleza y la aristocracia europea. Los primeros diseños de corsé tenían una forma cónica y eran realizados con metal; el objetivo de su uso era aplanar el busto y darle al cuerpo un aspecto erguido. Obviamente el cuerpo quedaba rígido y con movimientos limitados. El corsé se llevaba como una prenda interior y fue cambiando su formato acorde a las diferentes modas, pero lo que se buscaba fundamentalmente, era modificar la forma del cuerpo femenino.
 

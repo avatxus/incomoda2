@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './style/index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-require('./lib/video');
 
 // import reportWebVitals from './reportWebVitals';
 

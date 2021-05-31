@@ -11,8 +11,9 @@ import styles from './App.module.css';
 const Home = lazy(() => import('./routes/home'));
 const Book = lazy(() => import('./routes/book'));
 const Config = lazy(() => import('./routes/config'));
+const Video = lazy(() => import('./routes/video'));
 
-const APP_PADDING = window.innerWidth > 500 ? 24 * 2 : 0;
+const APP_PADDING = window.innerWidth > 600 ? 24 * 2 : 0;
 
 ReactGA.initialize('UA-193662890-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
@@ -35,6 +36,7 @@ const App = () => {
             <Suspense fallback={<Fallback />}>
                 <AppProvider>
                     <Router>
+                        <Route path="/video" component={Video} />
                         <Route path="/config" component={Config} />
                         <Route path="/book" component={Book} />
                         <Route exact path="/" component={Home} />
