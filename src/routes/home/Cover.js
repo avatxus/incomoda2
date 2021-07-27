@@ -8,7 +8,7 @@ const Cover = () => (
         </div>
 
         <div className={styles.imageWrapper}>
-            <img src={cover} alt="Incómoda" />
+            <img src={cover} alt="Incómoda" width="750" height="562" />
         </div>
         <div className={styles.author}>Marcela Laudonio</div>
     </div>

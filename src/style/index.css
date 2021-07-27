@@ -78,6 +78,13 @@ p {
     margin-bottom: 16px;
 }
 
+.credit-text {
+    margin-bottom: 16px;
+}
+
+.italic {
+    font-style: italic;
+}
 /* Global styles for the book */
 .homeWrapper,
 .wrapper {
@@ -162,7 +169,6 @@ p {
     font-size: 12px;
     letter-spacing: 0;
     line-height: 20px;
-    overflow-y: scroll;
 }
 
 .mt-16 {
@@ -224,10 +230,30 @@ article p.skip-indent {
     text-decoration: none;
     color: var(--color);
     padding: 12px 0;
+    font-size: 16px;
 }
 
 .index-list a:hover {
     color: var(--main-color);
+}
+
+.dedicatoria-wrapper {
+    break-after: column;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    text-align: center;
+    margin: 0;
+    padding-top: 20%;
+}
+
+.dedicatoria-text {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 700;
+    margin-bottom: 16px;
 }
 
 .book-title-wrapper {
@@ -462,12 +488,6 @@ article p.skip-indent {
     } */
 }
 
-@media (max-height: 800px) {
-    .homeWrapper {
-        /* width: 440px; */
-    }
-}
-
 /* @media (max-height: 600px) {
     .wrapper {
         width: 296px;
@@ -545,6 +565,10 @@ article p.skip-indent {
     .index-list {
         font-size: 16px;
     }
+    .index-link {
+        font-size: 16px;
+        padding: 8px 0;
+    }
 
     .index-list li {
         padding: 4px 0;
@@ -558,6 +582,9 @@ article p.skip-indent {
         max-width: 50%;
         height: 70%;
         margin: 8px 0;
+    }
+    .dedicatoria-text {
+        font-size: 12px;
     }
 }
 

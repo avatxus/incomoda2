@@ -4,6 +4,9 @@ import ReactGA from 'react-ga';
 
 import Header from '../../components/header';
 
+import PlayButton from '../../assets/yt-play.png';
+import VideoImage from '../../assets/video-image.jpg';
+
 import styles from './index.module.css';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import { loadVideo } from '../../lib/video';
@@ -44,12 +47,12 @@ const Page = () => {
         <div className="wrapper">
             <div className={styles.pageWrapper}>
                 <Header />
-                <div lang="es" class="video-wrapper">
-                    <div class="video-container">
+                <div lang="es" className="video-wrapper">
+                    <div className="video-container">
                         <div id="player" onClick={loadVideo}>
-                            <img src="/video-image.jpg" class="video-placeholder" alt="imagen-video" width="452" height="245" />
-                            <div class="video-play-button-wrapper">
-                                <img src="/yt-play.png" class="video-play-button" alt="play-button" />
+                            <img src={VideoImage} className="video-placeholder" alt="imagen-video" width="452" height="245" />
+                            <div className="video-play-button-wrapper">
+                                <img src={PlayButton} className="video-play-button" alt="play-button" />
                             </div>
                         </div>
                     </div>

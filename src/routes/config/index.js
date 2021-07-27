@@ -88,9 +88,9 @@ const Page = () => {
                                 </Grid>
                             </li>
                             <li>
-                                Arriba a la derecha encontrarás el índice{' '}
-                                {<MenuBookOutlinedIcon color="primary" style={{ marginBottom: '-4px' }} />}. Presionalo si querés ir a
-                                distintos capítulos del libro o regresar a la con&shy;fi&shy;gu&shy;ración.
+                                Arriba a la izquierda encontrarás el menú{' '}
+                                {<MenuBookOutlinedIcon color="primary" style={{ marginBottom: '-4px' }} />}. Presionalo si querés ir al
+                                índice del libro o regresar a la con&shy;fi&shy;gu&shy;ración.
                             </li>
                             <li>
                                 Para los usuarios de Android, al abrir la página les preguntará si quieren instalarla en su dispositivo. Si
@@ -99,8 +99,8 @@ const Page = () => {
                             </li>
                             <li>
                                 Para los usuarios de iPhone o iPad, pueden agregar el libro como una App. Presionan en el ícono{' '}
-                                <img src={iosAction} width="24" alt="Agregar a inicio" style={{ verticalAlign: 'sub' }} /> y seleccionan:
-                                'Agregar a inicio'
+                                <img src={iosAction} width="24" height="24" alt="Agregar a inicio" style={{ verticalAlign: 'sub' }} /> y
+                                seleccionan: 'Agregar a inicio'
                             </li>
                             <li>Esta aplicación guarda cual fue la última página que leíste.</li>
                         </ul>

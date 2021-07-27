@@ -18,9 +18,9 @@ const APP_PADDING = window.innerWidth > 600 ? 24 * 2 : 0;
 ReactGA.initialize('UA-193662890-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
-function Fallback() {
+function Fallback(props) {
     return (
-        <div className="wrapper">
+        <div className="wrapper" style={{ height: props.height }}>
             <div className={styles.pageWrapper}>
                 <Loader />
             </div>
@@ -33,7 +33,7 @@ const App = () => {
     return (
         <div id="app" style={{ height: height - APP_PADDING }}>
             <ScopedCssBaseline />
-            <Suspense fallback={<Fallback />}>
+            <Suspense fallback={<Fallback height={height - APP_PADDING} />}>
                 <AppProvider>
                     <Router>
                         <Route path="/video" component={Video} />

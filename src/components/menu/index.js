@@ -2,8 +2,8 @@ import React, { useCallback, useMemo, useRef } from 'react';
 
 import styles from './index.module.css';
 import MenuBookOutlinedIcon from '@material-ui/icons/MenuBookTwoTone';
-import { useAppState } from '../../contexts/AppContext';
 import SideNav from './sidenav';
+import igLogo from '../../assets/ig-logo.png';
 
 const CustomLink = ({ href, onClick, children }) => {
     return (
@@ -14,10 +14,9 @@ const CustomLink = ({ href, onClick, children }) => {
 };
 
 const Title = () => {
-    const { fontSize } = useAppState();
     return (
         <div className={styles.navTitle}>
-            <div style={{ fontSize: fontSize * 2 }}>Incómoda</div>
+            <div style={{ fontSize: 32 }}>Incómoda</div>
         </div>
     );
 };
@@ -53,14 +52,25 @@ const Menu = ({ showNav, setShowNav }) => {
     }, [setShowNav]);
 
     return (
-        <div style={{ height: 'auto' }} aria-hidden="true">
-            <div ref={menuRef} role="button" tabIndex="0" className={styles.menuButtonWrapper} onClick={handleClick} aria-hidden>
+        <div style={{ height: 'auto' }}>
+            <div ref={menuRef} role="button" tabIndex="0" className={styles.menuButtonWrapper} onClick={handleClick} aria-label="menú">
                 <MenuBookOutlinedIcon size="large" color="primary" />
             </div>
             <SideNav open={showNav} onBackdropClick={() => setShowNav(false)} className={styles.drawer} hysteresis={1}>
                 <Title />
                 <hr />
                 <div className={styles.navWrapper}>{navItems}</div>
+                <div className={styles.footer}>
+                    <hr />
+
+                    <a className={styles.email} href="mailto:incomodaok@gmail.com" target="_blank" rel="noreferrer">
+                        incomodaok@gmail.com
+                    </a>
+                    <a href="https://instagram.com/incomodaok" target="_blank" rel="noreferrer" className={styles.igWrapper}>
+                        <img src={igLogo} width="24" height="24" alt="Instagram" />
+                        <span className={styles.igName}>@incomodaok</span>
+                    </a>
+                </div>
             </SideNav>
         </div>
     );

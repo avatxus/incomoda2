@@ -35,6 +35,7 @@
 .imageWrapper img {
     width: 100%;
     display: block;
+    height: auto;
 }
 
 .textWrapper {

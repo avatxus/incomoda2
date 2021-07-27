@@ -26,8 +26,14 @@
   <div class="book-subtitle">Cuerpos Libres</div>
 </div>
 
+<!-- Credits -->
+<div lang="es" class="dedicatoria-wrapper">
+  <div class="dedicatoria-text">Para Giuseppe, Bianca y Ale.</div>
+  <div class="dedicatoria-text">Para todas las mujeres de mi vida.</div>
+</div>
+
 <!-- Index -->
-<div id="indice" aria-hidden="true" class="index-wrapper">
+<div id="indice" class="index-wrapper" aria-label="índice" >
   <div class="index-title">Incómoda</div>
   <div class="index-subtitle">Marcela Laudonio</div>
 
@@ -41,7 +47,7 @@
   </div>
 </div>
 
-<div class="chapter-title" id="introduccion">Introducción</div>
+<div class="chapter-title" id="introduccion" aria-label="capítulo">Introducción</div>
 
 Este libro, además de ser mi pequeño aporte a una lucha que se viene dando en todo el mundo, surge a partir de una profunda crisis personal que, entre otras cosas, me ha llevado a cuestionar estructuras que estaban fuertemente arraigadas en mí. Mientras lo escribía, fui tomando conciencia de que era momento de derribar esas estructuras que siguen vigentes en la sociedad, pero que deberían haber perecido hace tiempo.
 
@@ -88,7 +94,7 @@ He pasado parte de mi vida forzosamente excluida del sistema y esa exclusión me
 </p>
 
 <!-- Capitulo 2 -->
-<div class="chapter-title" id="tipificacion">La tipificación de los cuerpos</div>
+<div class="chapter-title" id="tipificacion" aria-label="capítulo">La tipificación de los cuerpos</div>
 
 > En la noche a tu lado
 >
@@ -304,7 +310,7 @@ Es tiempo de mostrar que la verdadera belleza radica en la autenticidad, la aust
 Las revoluciones también se gestan en los pequeños actos que cada uno puede realizar desde su lugar.
 </p>
 
-<div class="chapter-title" id="mandato">El mandato de encontrar un estilo</div>
+<div class="chapter-title" id="mandato" aria-label="capítulo">El mandato de encontrar un estilo</div>
 
 > Que nada nos defina.
 >
@@ -397,7 +403,7 @@ Siento que los seres sensibles nos permitimos expresarnos con cierto desparpajo 
 
 Aunque suene obvio, muchas veces perdemos el eje y está claro que nos bombardean desde todos los medios existentes con el objetivo de hacernos creer que tener mucha ropa cara o la vida de una persona famosa es la fórmula de la felicidad. Pero esto es tan tonto que solo con repetirlo en voz alta o escribirlo como estoy haciendo yo en este momento, alcanza para darse cuenta.
 
-Volviendo puntualmente al tema del estilo, conceptualmente no existe marco teórico alguno que avale la cantidad de enunciados que se difunden al respecto. Cuando se habla de estilo lo único que encontramos es un conjunto de creencias preestablecidas que consisten en unas cuantas categorías vacías de contenido que responden, al igual que sucede con el cuerpo, a estereotipos.
+Volviendo puntualmente al tema del estilo, conceptualmente no existe marco teórico alguno que avale la cantidad de enunciados que se difunden al respecto. Cuando se habla de estilo lo único que encontramos es un conjunto de creencias establecidas que consisten en unas cuantas categorías vacías de contenido que responden, al igual que sucede con el cuerpo, a estereotipos.
 
 El estilo sexy, el romántico, el elegante; todos representan a un tipo de mujer que nos asocia directamente a un objeto de deseo, un deseo que es más propio de las masculinidades que de nosotras mismas. Sin embargo, aún sobre todas las imposiciones que se nos presentan en el día a día, casi en el minuto a minuto, como ya he mencionado, no tengo dudas de que las mujeres tenemos la enorme capacidad de SER, elegir y decidir sobre dichas imposiciones.
 
@@ -432,7 +438,7 @@ Cuando empecé a trabajar en asesoramiento de imagen, una de las primeras ideas 
 
 Si bien eso cambió y hoy hay más opciones, esto se debe exclusivamente al trabajo de los activismos gordes y todavía falta muchísimo para que la sociedad deje de mirar a la gente gorda como si fuera enferma o para que la gordura deje de ser motivo de chiste, burla o maltrato.
 
-Fue sobre todo gracias al trabajo de estos activismos, que en el año 2019 se sancionó La Ley Nacional de Talles (todavía no se ha implementado). La misma contempla, entre sus puntos más sobresalientes, que por primera vez en su historia Argentina tenga una curva de talles elaborada sobre la base de la composición antropométrica (medidas y proporciones del cuerpo) de la población. No encontrar el talle de ropa adecuado es una dificultad que tenemos casi todas las personas; según la última encuesta realizada en el año 2020, por la ONG AnyBody Argentina <span class="inline-block">-dedicada</span> a generar conciencia y luchar contra la epidemia del odio <span class="inline-block">corporal-</span> 65% de las personas tiene dificultad para encontrar su talle.
+Fue sobre todo gracias al trabajo de estos activismos, que en el año 2019 se sancionó La Ley SUNITI (Sistema Único Normalizado de Identificación de Talles de Indumentaria). La misma contempla, entre sus puntos más sobresalientes, que por primera vez en su historia Argentina tenga una curva de talles elaborada sobre la base de la composición antropométrica (medidas y proporciones del cuerpo) de la población. No encontrar el talle de ropa adecuado es una dificultad que tenemos casi todas las personas; según la última encuesta realizada en el año 2020, por la ONG AnyBody Argentina <span class="inline-block">-dedicada</span> a generar conciencia y luchar contra la epidemia del odio <span class="inline-block">corporal-</span> 65% de las personas tiene dificultad para encontrar su talle.
 
 Son muchas las cosas que debemos plantearnos como sociedad, pero voy a apelar especialmente a la responsabilidad individual que todos tenemos. De la discriminación que ejercemos también debemos hacernos cargo: la chica gorda del colegio y de la que te dio vergüenza ser amiga, merece que te hagas responsable del lugar de privilegio social que tenés solo por el hecho de ser una persona flaca. Seguramente esto del privilegio de ser flaca es algo que nunca registraste, pero sí, en este mundo donde el aspecto físico tiene tanta preponderancia, las personas con cuerpos flacos tienen evidentes ventajas por sobre los otros cuerpos que no lo son. ¿De qué se trata ese privilegio? Por ejemplo, de que puedas comprarte un abrigo en invierno en cualquier negocio y que no te cueste una fortuna, de que puedas comer lo que se te ocurra en cualquier lado y que nadie te cuestione o te mire de mala manera, de ir al médico porque estás resfriada y que no te diga que tenés que adelgazar, de que te elijan en un puesto de trabajo por sobre una persona gorda, <span class="inline-block">-aun</span> si esa persona está más <span class="inline-block">capacitada-</span> y puedo seguir con la lista infinitamente.
 
@@ -496,7 +502,7 @@ Aprender a divertirnos cuando nos vestimos es parte del juego que propone la mod
 
 <!-- Capitulo 4 -->
 
-<div class="chapter-title" id="maternidad">Imagen y Maternidad</div>
+<div class="chapter-title" id="maternidad" aria-label="capítulo">Imagen y Maternidad</div>
 
 > Nada más intenso que el terror de perder
 >
@@ -570,7 +576,7 @@ Respetar y mirar a los hijos como personas, entender que ellos son capaces de ac
 
 <!-- Capítulo 5 -->
 
-<div class="chapter-title" id="contaminacion">Moda, contaminación ambiental y métodos de trabajo.</div>
+<div class="chapter-title" id="contaminacion" aria-label="capítulo">Moda, contaminación ambiental y métodos de trabajo.</div>
 
 > La persona sencilla vive de la manera en que respira,
 >
@@ -732,7 +738,7 @@ La esperanza que me queda es que somos el 99% restante y que si dejamos de permi
 
 <!-- Capítulo 6 -->
 
-<div class="chapter-title" id="cambios">Pequeñas acciones, grandes cambios</div>
+<div class="chapter-title" id="cambios" aria-label="capítulo">Pequeñas acciones, grandes cambios</div>
 
 > La naturaleza se encoge conforme el capital crece. El crecimiento del mercado no puede resolver la crisis que él mismo creó.
 >
@@ -768,4 +774,23 @@ Conocer el modo de vida de nuestros pueblos originarios, aprender de su lucha in
 
 Esta pandemia que nos acecha es una buena oportunidad de mejorar nuestra calidad de vida. Mucha gente a partir de tener que quedarse en su casa, está elaborando su propio pan o plantando una semilla de lo que sea en su balcón, pequeño patio o terraza y llevando a cabo sus propios emprendimientos. Ojalá esta situación que estamos atravesando sirva para darnos cuenta de que, muchas veces, aquello que empieza a partir de una necesidad puede convertirse en una forma de vida mucho más gratificante y productiva, que estar trabajando para otros.
 
-Insistiré, todas las veces que me sea posible, en lo importante que es profundizar el pensamiento y conectar con nosotros desde un lugar genuino sin imposiciones ni mandatos. Es necesario vincularnos desde el amor, el respeto, la empatía; apoyar causas nobles; luchar de manera colectiva porque en soledad no llegamos a ningún lado; cuidar y valorar el espacio donde vivimos, la naturaleza y todos los seres que la habitan. <p class="no-break skip-indent">Por último: <strong>NO LE TENGAN MIEDO A LA LIBERTAD DE VIVIR POR FUERA DEL SISTEMA.</strong></span>
+Insistiré, todas las veces que me sea posible, en lo importante que es profundizar el pensamiento y conectar con nosotros desde un lugar genuino sin imposiciones ni mandatos. Es necesario vincularnos desde el amor, el respeto, la empatía; apoyar causas nobles; luchar de manera colectiva porque en soledad no llegamos a ningún lado; cuidar y valorar el espacio donde vivimos, la naturaleza y todos los seres que la habitan. <p class="last-p no-break skip-indent">Por último: <strong>NO LE TENGAN MIEDO A LA LIBERTAD DE VIVIR POR FUERA DEL SISTEMA.</strong></span>
+
+<!-- Credits -->
+<div class="chapter-subtitle">Agradecimientos</div>
+
+<p class="credit-text italic">Este libro fue posible gracias al amor, el trabajo, la sapiencia y dedicación de mucha gente.</p>
+
+<p class="credit-text italic">Gracias Victoria Van Morlegan por la edición y corrección minuciosa. Hacer este trabajo juntas fue un regalo de la vida que guardaré por siempre en mi corazón.</p>
+
+<p class="credit-text italic">Gracias María Fourcade por regalarme a la bella Freya para que sea la imagen de tapa de mi libro y sobre todo por ayudarme a batallar con mis miedos e inseguridades.</p>
+
+<p class="credit-text italic">Gracias Ezequiel Menevichian por las imágenes que representan Incómoda a la perfección.</p>
+
+<p class="credit-text italic">Gracias Celina Font por aquella cena donde te conté que quería escribir un libro y además de alentarme a hacerlo, me contaste sobre técnicas de escritura que fueron clave para arrancar.</p>
+
+<p class="credit-text italic">Gracias Juanky Jurado por los muy buenos consejos que me ayudaron a ponerle un marco a lo que quería contar.</p>
+
+<p class="credit-text italic">Gracias Flor Patroncini por tus visitas cada fin de semana de la eterna cuarentena. Sin vos ahí, jugando y dándole amor a mis hijes, no hubiese podido terminar de escribir Incómoda.</p>
+
+<p class="last-p italic">Gracias Alejandro Avagnina por la hermosa plataforma que armaste y que mi sueño de que todo el mundo pueda leer el libro se haga realidad. Y sobre todo, gracias por la paciencia</p>

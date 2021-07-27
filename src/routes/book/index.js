@@ -22,6 +22,21 @@ const BOOK_START_PAGE = 5;
 
 const md = new MarkdownIt({ html: true });
 
+// let index = 1;
+
+// md.renderer.rules.paragraph_open = function (tokens, i) {
+//     let str;
+//     const token = tokens[i];
+
+//     if (token.tag === 'p' && token.type === 'paragraph_open') {
+//         console.log(token);
+//         str = `<${token.tag} tabindex="${index}">`;
+//         index++;
+//     }
+
+//     return str;
+// };
+
 function getCurrentUrl() {
     if (typeof window !== 'undefined') {
         return window.location;
@@ -130,18 +145,15 @@ const Page = () => {
         [getClientWidth],
     );
 
-    const getPagesCount = useCallback(
-        (appState) => {
-            if (!pageRef.current) return;
-            const clientWidth = getClientWidth();
-            return Math.round(pageRef.current.scrollWidth / clientWidth);
-        },
-        [getClientWidth],
-    );
+    const getPagesCount = useCallback(() => {
+        if (!pageRef.current) return;
+        const clientWidth = getClientWidth();
+        return Math.round(pageRef.current.scrollWidth / clientWidth);
+    }, [getClientWidth]);
 
     const calculateCurrentPageOnRefresh = useCallback(() => {
-        const clientWidth = parseFloat(window.getComputedStyle(pageRef.current).width);
-        const pagesCount = getPagesCount(appState);
+        const clientWidth = getClientWidth();
+        const pagesCount = getPagesCount();
         let currentPage = getCurrentPage(appState);
 
         let scrollLeft = appState.scrollLeft ? appState.scrollLeft : clientWidth * (currentPage - 1);
@@ -158,14 +170,14 @@ const Page = () => {
             console.log('new progress', (currentPage * 100) / pagesCount);
             scrollLeft = clientWidth * (Math.round(currentPage) - 1);
         }
-        console.log({ pagesCount, fontSize: appState.fontSize, prevFontSize: appState.prevFontSize });
         const fontSize = appState.fontSize ? appState.fontSize : 16;
         pageRef.current.scrollLeft = scrollLeft;
         appDispatch({ type: 'SET_INITIAL_DATA', pagesCount, currentPage: Math.round(currentPage), scrollLeft, fontSize, clientWidth });
-    }, [appDispatch, appState, getCurrentPage, getPagesCount]);
+    }, [appDispatch, appState, getClientWidth, getCurrentPage, getPagesCount]);
 
     const calculateCurrentPageOnResize = useCallback(() => {
-        const clientWidth = parseFloat(window.getComputedStyle(pageRef.current).width);
+        console.log('resize callback');
+        const clientWidth = getClientWidth();
         const pagesCount = getPagesCount(appState);
         let currentPage = getCurrentPage(appState);
 
@@ -187,7 +199,7 @@ const Page = () => {
         pageRef.current.scrollLeft = scrollLeft;
         appDispatch({ type: 'SET_INITIAL_DATA', pagesCount, currentPage, clientWidth, scrollLeft });
         // pageRef.current.scrollLeft = clientWidth * (currentPage - 1);
-    }, [appDispatch, appState, getCurrentPage, getPagesCount]);
+    }, [appDispatch, appState, getClientWidth, getCurrentPage, getPagesCount]);
 
     // handle page resize or font change
     const handleResize = useCallback(() => {
@@ -236,13 +248,57 @@ const Page = () => {
         const id = hash.replace('#', '');
         const element = document.getElementById(id);
         if (element) element.scrollIntoView();
-        const currentPage = appState?.clientWidth ? Math.round(pageRef.current.scrollLeft / appState.clientWidth) + 1 : 1;
+        const clientWidth = getClientWidth();
+        const currentPage = Math.round(pageRef.current.scrollLeft / clientWidth) + 1;
         const scrollLeft = pageRef.current.scrollLeft;
         appDispatch({ type: 'SET_CURRENT_PAGE', currentPage, scrollLeft });
         pageLoaded.current = true;
         setLoaded(true);
-    }, [appDispatch, appState.clientWidth, hash, html]);
-    console.log('render');
+    }, [appDispatch, getClientWidth, hash, html]);
+
+    // focus
+    // useEffect(() => {
+    //     const sections = Array.from(pageRef.current.querySelectorAll('p'));
+    //     const intersecting = new Set();
+    //     const observer = new IntersectionObserver(
+    //         (entries) => {
+    //             entries.forEach((entry) => {
+    //                 if (entry.isIntersecting) {
+    //                     console.log({ entry });
+    //                     if (entry?.target) {
+    //                         entry.target.focus();
+    //                     }
+    //                     intersecting.add(entry.target.id);
+    //                 } else {
+    //                     intersecting.delete(entry.target.id);
+    //                 }
+    //             });
+    //             if (!intersecting.size) return;
+    //             if (intersecting.size === 1) {
+    //                 console.log(intersecting);
+    //                 return;
+    //             }
+    //             sections.some((el) => {
+    //                 if (intersecting.has(el.id)) {
+    //                     console.log(intersecting.values().next().value);
+    //                     return true;
+    //                 }
+    //                 return false;
+    //             });
+    //         },
+    //         {
+    //             root: pageRef.current,
+    //             rootMargin: '0px',
+    //             threshold: 0.5,
+    //         },
+    //     );
+    //     sections.forEach((el) => {
+    //         observer.observe(el);
+    //     });
+    //     return () => {
+    //         observer.disconnect();
+    //     };
+    // }, [html]);
 
     return (
         <Swipe onSwipeLeft={onSwipedLeft} onSwipeRight={onSwipedRight} tolerance={80} style={{ height: '100%', background: 'var(--bg)' }}>
